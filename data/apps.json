@@ -1,0 +1,233 @@
+{
+    "categories": [
+        {
+            "name": "Mail",
+            "order": 1,
+            "mainstream_apps": [
+                { "name": "Gmail", "logo": "/logos/gmail.png" },
+                { "name": "Outlook", "logo": "/logos/outlook.png" },
+                { "name": "Yahoo Mail", "logo": "/logos/yahoo.png" },
+                { "name": "Apple Mail", "logo": "/logos/apple_mail.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Proton Mail", "logo": "/logos/protonmail.png" },
+                { "name": "Tuta Mail", "logo": "/logos/tutamail.png" }
+            ]
+        },
+        {
+            "name": "Messaging",
+            "order": 2,
+            "mainstream_apps": [
+                { "name": "WhatsApp", "logo": "/logos/whatsapp.png" },
+                { "name": "Messenger", "logo": "/logos/messenger.png" },
+                { "name": "Telegram", "logo": "/logos/telegram.png" },
+                { "name": "iMessage", "logo": "/logos/imessage.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Signal", "logo": "/logos/signal.png" },
+                { "name": "Element", "logo": "/logos/element.png" },
+                { "name": "Session", "logo": "/logos/session.png" }
+            ]
+        },
+        {
+            "name": "Browser",
+            "order": 3,
+            "mainstream_apps": [
+                { "name": "Chrome", "logo": "/logos/chrome.png" },
+                { "name": "Safari", "logo": "/logos/safari.png" },
+                { "name": "Edge", "logo": "/logos/edge.png" },
+                { "name": "Opera", "logo": "/logos/opera.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Brave", "logo": "/logos/brave.png" },
+                { "name": "Firefox", "logo": "/logos/firefox.png" },
+                { "name": "Tor Browser", "logo": "/logos/tor.png" }
+            ]
+        },
+        {
+            "name": "Search",
+            "order": 4,
+            "mainstream_apps": [
+                { "name": "Google", "logo": "/logos/google.png" },
+                { "name": "Bing", "logo": "/logos/bing.png" },
+                { "name": "Yahoo", "logo": "/logos/yahoo.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Kagi", "logo": "/logos/kagi.png" },
+                { "name": "DuckDuckGo", "logo": "/logos/duckduckgo.png" },
+                { "name": "Searx", "logo": "/logos/searx.png" }
+            ]
+        },
+        {
+            "name": "Drive",
+            "order": 5,
+            "mainstream_apps": [
+                { "name": "Google Drive", "logo": "/logos/google_drive.png" },
+                { "name": "OneDrive", "logo": "/logos/onedrive.png" },
+                { "name": "Dropbox", "logo": "/logos/dropbox.png" },
+                { "name": "iCloud", "logo": "/logos/icloud.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Nextcloud", "logo": "/logos/nextcloud.png" },
+                { "name": "Proton Drive", "logo": "/logos/proton_drive.png" },
+                { "name": "pCloud", "logo": "/logos/pcloud.png" }
+            ]
+        },
+        {
+            "name": "Calendar",
+            "order": 6,
+            "mainstream_apps": [
+                {
+                    "name": "Google Calendar",
+                    "logo": "/logos/google_calendar.png"
+                },
+                {
+                    "name": "Outlook Calendar",
+                    "logo": "/logos/outlook_calendar.png"
+                },
+                {
+                    "name": "Apple Calendar",
+                    "logo": "/logos/apple_calendar.png"
+                }
+            ],
+            "private_alternatives": [
+                {
+                    "name": "Proton Calendar",
+                    "logo": "/logos/proton_calendar.png"
+                },
+                {
+                    "name": "Nextcloud Calendar",
+                    "logo": "/logos/nextcloud_calendar.png"
+                },
+                {
+                    "name": "Tuta Calendar",
+                    "logo": "/logos/tutanota_calendar.png"
+                }
+            ]
+        },
+        {
+            "name": "Photos",
+            "order": 7,
+            "mainstream_apps": [
+                { "name": "Google Photos", "logo": "/logos/google_photos.png" },
+                { "name": "Apple Photos", "logo": "/logos/apple_photos.png" },
+                { "name": "Amazon Photos", "logo": "/logos/amazon_photos.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Ente Photos", "logo": "/logos/ente.png" },
+                {
+                    "name": "Nextcloud Photos",
+                    "logo": "/logos/nextcloud_photos.png"
+                },
+                { "name": "PhotoPrism", "logo": "/logos/photoprism.png" }
+            ]
+        },
+        {
+            "name": "Notes",
+            "order": 8,
+            "mainstream_apps": [
+                { "name": "Google Keep", "logo": "/logos/google_keep.png" },
+                { "name": "Apple Notes", "logo": "/logos/apple_notes.png" },
+                { "name": "Evernote", "logo": "/logos/evernote.png" },
+                { "name": "OneNote", "logo": "/logos/onenote.png" },
+                { "name": "Notion", "logo": "/logos/notion.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "name": "Standard Notes",
+                    "logo": "/logos/standard_notes.png"
+                },
+                { "name": "Joplin", "logo": "/logos/joplin.png" },
+                { "name": "Obsidian", "logo": "/logos/obsidian.png" }
+            ]
+        },
+        {
+            "name": "Passwords",
+            "order": 9,
+            "mainstream_apps": [
+                { "name": "Chrome Passwords", "logo": "/logos/chrome.png" },
+                { "name": "Safari Keychain", "logo": "/logos/safari.png" },
+                { "name": "Edge Passwords", "logo": "/logos/edge.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Bitwarden", "logo": "/logos/bitwarden.png" },
+                { "name": "1Password", "logo": "/logos/1password.png" },
+                { "name": "KeePassXC", "logo": "/logos/keepassxc.png" }
+            ]
+        },
+        {
+            "name": "2FA",
+            "order": 10,
+            "mainstream_apps": [
+                {
+                    "name": "Google Auth",
+                    "logo": "/logos/google_authenticator.png"
+                },
+                {
+                    "name": "Microsoft Auth",
+                    "logo": "/logos/microsoft_authenticator.png"
+                },
+                { "name": "SMS Codes", "logo": "/logos/sms.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Ente Auth", "logo": "/logos/ente_auth.png" },
+                { "name": "Aegis Auth", "logo": "/logos/aegis.png" },
+                { "name": "TOTP.app", "logo": "/logos/totp.png" }
+            ]
+        },
+        {
+            "name": "VPN",
+            "order": 11,
+            "mainstream_apps": [
+                { "name": "No VPN", "logo": "/logos/no_vpn.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Mullvad VPN", "logo": "/logos/mullvad.png" },
+                { "name": "Proton VPN", "logo": "/logos/proton_vpn.png" },
+                { "name": "IVPN", "logo": "/logos/ivpn.png" }
+            ]
+        },
+        {
+            "name": "Desktop OS",
+            "order": 12,
+            "mainstream_apps": [
+                { "name": "Windows", "logo": "/logos/windows.png" },
+                { "name": "macOS", "logo": "/logos/macos.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Ubuntu", "logo": "/logos/ubuntu.png" },
+                { "name": "Fedora", "logo": "/logos/fedora.png" },
+                { "name": "Tails", "logo": "/logos/tails.png" }
+            ]
+        },
+        {
+            "name": "Phone OS",
+            "order": 13,
+            "mainstream_apps": [
+                { "name": "Android", "logo": "/logos/android.png" },
+                { "name": "iOS", "logo": "/logos/ios.png" }
+            ],
+            "private_alternatives": [
+                { "name": "GrapheneOS", "logo": "/logos/grapheneos.png" },
+                { "name": "CalyxOS", "logo": "/logos/calyxos.png" },
+                { "name": "LineageOS", "logo": "/logos/lineageos.png" }
+            ]
+        },
+        {
+            "name": "App Store",
+            "order": 14,
+            "mainstream_apps": [
+                {
+                    "name": "Play Store",
+                    "logo": "/logos/google_play.png"
+                },
+                { "name": "App Store", "logo": "/logos/app_store.png" }
+            ],
+            "private_alternatives": [
+                { "name": "F-Droid", "logo": "/logos/fdroid.png" },
+                { "name": "Aurora Store", "logo": "/logos/aurora.png" },
+                { "name": "APKPure", "logo": "/logos/apkpure.png" }
+            ]
+        }
+    ]
+}
