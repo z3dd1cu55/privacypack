@@ -26,6 +26,7 @@
             "private_alternatives": [
                 { "name": "Signal", "logo": "/logos/signal.png" },
                 { "name": "Element", "logo": "/logos/element.png" },
+                { "name": "SimpleX Chat", "logo": "/logos/simplex_chat.png" },
                 { "name": "Session", "logo": "/logos/session.png" }
             ]
         },
@@ -48,19 +49,63 @@
             "name": "Search",
             "order": 4,
             "mainstream_apps": [
-                { "name": "Google", "logo": "/logos/google.png" },
+                { "name": "Google Search", "logo": "/logos/google.png" },
                 { "name": "Bing", "logo": "/logos/bing.png" },
-                { "name": "Yahoo", "logo": "/logos/yahoo.png" }
+                { "name": "Yahoo Search", "logo": "/logos/yahoo.png" }
             ],
             "private_alternatives": [
                 { "name": "Kagi", "logo": "/logos/kagi.png" },
-                { "name": "DuckDuckGo", "logo": "/logos/duckduckgo.png" },
-                { "name": "Searx", "logo": "/logos/searx.png" }
+                { "name": "DuckDuckGo", "logo": "/logos/duckduckgo.png" }
+            ]
+        },
+        {
+            "name": "Notes",
+            "order": 5,
+            "mainstream_apps": [
+                { "name": "Google Keep", "logo": "/logos/google_keep.png" },
+                { "name": "Apple Notes", "logo": "/logos/apple_notes.png" },
+                { "name": "Evernote", "logo": "/logos/evernote.png" },
+                { "name": "OneNote", "logo": "/logos/onenote.png" },
+                { "name": "Notion", "logo": "/logos/notion.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "name": "Standard Notes",
+                    "logo": "/logos/standard_notes.png"
+                },
+                {
+                    "name": "Notesnook",
+                    "logo": "/logos/notesnook.png"
+                },
+                { "name": "Joplin", "logo": "/logos/joplin.png" },
+                { "name": "Obsidian", "logo": "/logos/obsidian.png" }
+            ]
+        },
+        {
+            "name": "Photos",
+            "order": 6,
+            "mainstream_apps": [
+                { "name": "Google Photos", "logo": "/logos/google_photos.png" },
+                { "name": "Apple Photos", "logo": "/logos/apple_photos.png" },
+                { "name": "Amazon Photos", "logo": "/logos/amazon_photos.png" },
+                {
+                    "name": "OneDrive Photos",
+                    "logo": "/logos/onedrive_photos.png"
+                },
+                { "name": "Dropbox", "logo": "/logos/dropbox.png" }
+            ],
+            "private_alternatives": [
+                { "name": "Ente Photos", "logo": "/logos/ente.png" },
+                {
+                    "name": "Nextcloud Photos",
+                    "logo": "/logos/nextcloud_photos.png"
+                },
+                { "name": "PhotoPrism", "logo": "/logos/photoprism.png" }
             ]
         },
         {
             "name": "Drive",
-            "order": 5,
+            "order": 7,
             "mainstream_apps": [
                 { "name": "Google Drive", "logo": "/logos/google_drive.png" },
                 { "name": "OneDrive", "logo": "/logos/onedrive.png" },
@@ -75,7 +120,7 @@
         },
         {
             "name": "Calendar",
-            "order": 6,
+            "order": 8,
             "mainstream_apps": [
                 {
                     "name": "Google Calendar",
@@ -106,48 +151,13 @@
             ]
         },
         {
-            "name": "Photos",
-            "order": 7,
-            "mainstream_apps": [
-                { "name": "Google Photos", "logo": "/logos/google_photos.png" },
-                { "name": "Apple Photos", "logo": "/logos/apple_photos.png" },
-                { "name": "Amazon Photos", "logo": "/logos/amazon_photos.png" }
-            ],
-            "private_alternatives": [
-                { "name": "Ente Photos", "logo": "/logos/ente.png" },
-                {
-                    "name": "Nextcloud Photos",
-                    "logo": "/logos/nextcloud_photos.png"
-                },
-                { "name": "PhotoPrism", "logo": "/logos/photoprism.png" }
-            ]
-        },
-        {
-            "name": "Notes",
-            "order": 8,
-            "mainstream_apps": [
-                { "name": "Google Keep", "logo": "/logos/google_keep.png" },
-                { "name": "Apple Notes", "logo": "/logos/apple_notes.png" },
-                { "name": "Evernote", "logo": "/logos/evernote.png" },
-                { "name": "OneNote", "logo": "/logos/onenote.png" },
-                { "name": "Notion", "logo": "/logos/notion.png" }
-            ],
-            "private_alternatives": [
-                {
-                    "name": "Standard Notes",
-                    "logo": "/logos/standard_notes.png"
-                },
-                { "name": "Joplin", "logo": "/logos/joplin.png" },
-                { "name": "Obsidian", "logo": "/logos/obsidian.png" }
-            ]
-        },
-        {
             "name": "Passwords",
             "order": 9,
             "mainstream_apps": [
                 { "name": "Chrome Passwords", "logo": "/logos/chrome.png" },
                 { "name": "Safari Keychain", "logo": "/logos/safari.png" },
-                { "name": "Edge Passwords", "logo": "/logos/edge.png" }
+                { "name": "Edge Passwords", "logo": "/logos/edge.png" },
+                { "name": "LastPass", "logo": "/logos/lastpass.png" }
             ],
             "private_alternatives": [
                 { "name": "Bitwarden", "logo": "/logos/bitwarden.png" },
@@ -167,7 +177,10 @@
                     "name": "Microsoft Auth",
                     "logo": "/logos/microsoft_authenticator.png"
                 },
-                { "name": "SMS Codes", "logo": "/logos/sms.png" }
+                {
+                    "name": "Authy",
+                    "logo": "/logos/authy.png"
+                }
             ],
             "private_alternatives": [
                 { "name": "Ente Auth", "logo": "/logos/ente_auth.png" },
