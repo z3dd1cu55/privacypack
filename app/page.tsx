@@ -14,7 +14,7 @@ export default function Home() {
                             width={0}
                             height={0}
                             sizes="100vw"
-                            className="h-auto w-full hover:text-cyan-400"
+                            className="h-auto w-full"
                             priority
                         />
                     </a>

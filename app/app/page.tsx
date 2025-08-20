@@ -4,13 +4,12 @@ import Link from "next/link";
 import {
     ArrowRight,
     Download,
-    CheckSquare,
     Square,
     Share2,
-    MoveRight,
-    SquareCheck,
+    SquareCheckBig,
+    ChevronDown,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -20,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
-import { handleDownload } from "@/lib/utils";
+import { handleDownload, handleShare } from "@/lib/utils";
 
 export default function App() {
     const [pack, setPack] = useState(() => {
@@ -71,30 +70,8 @@ export default function App() {
         );
     };
 
-    const [gap, setGap] = useState(48);
-
-    useEffect(() => {
-        function updateGap() {
-            const itemWidth = 240;
-            const containerWidth = window.innerWidth - 16;
-            const itemsPerRow = Math.floor(containerWidth / itemWidth);
-
-            if (itemsPerRow > 1) {
-                const newGap =
-                    (containerWidth - itemsPerRow * itemWidth) /
-                    (itemsPerRow - 1);
-                setGap(newGap);
-            }
-        }
-
-        updateGap();
-        window.addEventListener("resize", updateGap);
-        return () => window.removeEventListener("resize", updateGap);
-    }, []);
-
     return (
         <>
-            {/* Desktop view */}
             <div className="flex w-full flex-col p-4">
                 <div className="flex w-full flex-row items-center justify-between">
                     <Link
@@ -103,23 +80,24 @@ export default function App() {
                     >
                         PrivacyPack
                     </Link>
-                    <div className="flex flex-row gap-5">
+                    <div className="flex flex-row items-center gap-8">
                         <a
                             href="https://github.com/ente-io/privacypack"
                             target="_blank"
-                            className="flex h-8 w-auto cursor-pointer items-center justify-center bg-[#525252] px-3 text-xs text-white transition-all duration-150 hover:bg-[#444444]"
+                            className="hidden text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:block"
                         >
-                            WHERE'S MY APP?
+                            Where's my app?
                         </a>
                         <button
                             onClick={handleDownload}
-                            className="hidden h-8 w-8 cursor-pointer items-center justify-center bg-white text-black transition-all duration-150 hover:bg-white/80 sm:flex"
+                            className="hidden h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80 sm:flex"
                         >
-                            <Download color="black" size={16} />
+                            <Download color="black" size={18} />
+                            <span>DOWNLOAD</span>
                         </button>
                     </div>
                 </div>
-                <div className="mt-16 mb-10 grid grid-cols-1 gap-14 sm:mx-auto sm:gap-22 md:grid-cols-2 md:grid-rows-7 lg:grid-cols-3 lg:grid-rows-5 xl:mb-16 xl:grid-cols-4 xl:grid-rows-4">
+                <div className="mt-16 mb-10 grid grid-cols-1 gap-14 sm:mx-auto md:grid-cols-2 md:grid-rows-7 md:gap-20 lg:my-24 lg:gap-28 xl:my-24 xl:grid-cols-3 xl:grid-rows-5 xl:gap-16 2xl:my-32 2xl:gap-40">
                     {pack.map((item) => {
                         const category = data.categories.find(
                             (c) => c.name === item.category,
@@ -138,29 +116,30 @@ export default function App() {
                                         className="flex cursor-pointer items-center justify-center"
                                     >
                                         {item.chosen ? (
-                                            <SquareCheck className="h-5 w-5 text-white" />
+                                            <SquareCheckBig className="h-5 w-5 text-[#9f9f9f]" />
                                         ) : (
-                                            <Square className="h-5 w-5 text-white" />
+                                            <Square className="h-5 w-5 text-[#9f9f9f]" />
                                         )}
                                     </button>
                                 </div>
-                                <div className="flex h-full w-full flex-row items-center justify-between bg-[#181818] p-8 sm:w-auto sm:justify-normal sm:gap-3">
+                                <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between bg-[#181818] p-3 sm:w-auto sm:justify-normal sm:gap-3">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger
                                             asChild
                                             disabled={!item.chosen}
                                         >
                                             <div
-                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 transition outline-none ${
+                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
                                                     item.chosen
-                                                        ? "cursor-pointer hover:bg-[#ededed] focus:bg-[#ededed] data-[state=open]:bg-[#ededed]"
-                                                        : "pointer-events-none cursor-default opacity-40 grayscale"
+                                                        ? "cursor-pointer"
+                                                        : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
-                                                <div className="h-18 w-18 bg-[#181818]"></div>
-                                                <div className="mt-2 max-w-18 text-center text-xs leading-tight font-medium tracking-tight text-white">
+                                                <div className="h-18 w-18 bg-[#181818] lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40"></div>
+                                                <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {item.mainstream_app_name}
                                                 </div>
+                                                <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
                                         </DropdownMenuTrigger>
                                         {item.chosen && (
@@ -183,8 +162,8 @@ export default function App() {
                                                             }
                                                             className="flex cursor-pointer flex-row items-center gap-2"
                                                         >
-                                                            <div className="h-5 w-5 bg-gray-400"></div>
-                                                            <span className="text-xs">
+                                                            <div className="h-5 w-5 bg-gray-800"></div>
+                                                            <span className="text-xs sm:text-sm">
                                                                 {
                                                                     mainstream_app.name
                                                                 }
@@ -195,33 +174,32 @@ export default function App() {
                                             </DropdownMenuContent>
                                         )}
                                     </DropdownMenu>
-                                    <div className="flex items-center justify-center rounded-full border border-[#181818] bg-[#2B2B2B] p-3">
-                                        <ArrowRight
-                                            className={`transition ${
-                                                item.chosen
-                                                    ? "text-white"
-                                                    : "text-white"
-                                            }`}
-                                        />
-                                    </div>
+                                    <ArrowRight
+                                        className={`transition ${
+                                            item.chosen
+                                                ? "text-[#aeaeae]"
+                                                : "text-[#aeaeae] opacity-20"
+                                        }`}
+                                    />
                                     <DropdownMenu>
                                         <DropdownMenuTrigger
                                             asChild
                                             disabled={!item.chosen}
                                         >
                                             <div
-                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 transition outline-none ${
+                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
                                                     item.chosen
-                                                        ? "cursor-pointer hover:bg-[#ededed] focus:bg-[#ededed] data-[state=open]:bg-[#ededed]"
-                                                        : "pointer-events-none cursor-default opacity-40 grayscale"
+                                                        ? "cursor-pointer"
+                                                        : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
-                                                <div className="h-18 w-18 bg-[#181818]"></div>
-                                                <div className="mt-2 max-w-18 text-center text-xs leading-tight font-medium tracking-tight text-white">
+                                                <div className="h-18 w-18 bg-[#181818] lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40"></div>
+                                                <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {
                                                         item.private_alternative_name
                                                     }
                                                 </div>
+                                                <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
                                         </DropdownMenuTrigger>
                                         {item.chosen && (
@@ -246,7 +224,7 @@ export default function App() {
                                                         >
                                                             <div className="mr-5 flex flex-row items-center gap-2">
                                                                 <div className="h-5 w-5 bg-gray-800"></div>
-                                                                <span className="text-xs">
+                                                                <span className="text-xs sm:text-sm">
                                                                     {
                                                                         private_alternative.name
                                                                     }
@@ -266,10 +244,27 @@ export default function App() {
                         );
                     })}
                 </div>
-                <button className="mt-12 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden">
+                <button
+                    onClick={handleShare}
+                    className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
+                >
                     <Share2 color="black" size={16} />
                     <span className="text-lg">SHARE</span>
                 </button>
+                <button
+                    onClick={handleDownload}
+                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
+                >
+                    <Download color="white" size={16} />
+                    <span className="text-lg">DOWNLOAD</span>
+                </button>
+                <a
+                    href="https://github.com/ente-io/privacypack"
+                    target="_blank"
+                    className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:hidden"
+                >
+                    Where's my app?
+                </a>
             </div>
             <PrivacyPackResult pack={pack} />
         </>

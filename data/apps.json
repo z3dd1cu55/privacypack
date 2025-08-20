@@ -62,9 +62,9 @@
             "name": "Notes",
             "order": 5,
             "mainstream_apps": [
+                { "name": "Evernote", "logo": "/logos/evernote.png" },
                 { "name": "Google Keep", "logo": "/logos/google_keep.png" },
                 { "name": "Apple Notes", "logo": "/logos/apple_notes.png" },
-                { "name": "Evernote", "logo": "/logos/evernote.png" },
                 { "name": "OneNote", "logo": "/logos/onenote.png" },
                 { "name": "Notion", "logo": "/logos/notion.png" }
             ],
@@ -154,8 +154,11 @@
             "name": "Passwords",
             "order": 9,
             "mainstream_apps": [
-                { "name": "Chrome Passwords", "logo": "/logos/chrome.png" },
-                { "name": "Safari Keychain", "logo": "/logos/safari.png" },
+                {
+                    "name": "Google Passwords",
+                    "logo": "/logos/google_password_manager.png"
+                },
+                { "name": "iCloud Keychain", "logo": "/logos/safari.png" },
                 { "name": "Edge Passwords", "logo": "/logos/edge.png" },
                 { "name": "LastPass", "logo": "/logos/lastpass.png" }
             ],

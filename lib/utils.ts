@@ -25,12 +25,12 @@ function renderPrivacyPackInVirtualDOM() {
     position: fixed;
     left: 0;
     top: 0;
-    width: 1920px;
-    height: 1119px;
+    width: 1500px;
+    height: 1500px;
     clip-path: polygon(0 0, 0 0, 0 0);
     pointer-events: none;
-    background-color: #F5F5F7;
-    font-family: 'JetBrains Mono', monospace !important;
+    background-color: #121212;
+    font-family: monospace;
   `;
 
   document.body.appendChild(virtualDiv);
@@ -46,12 +46,12 @@ function renderPrivacyPackInVirtualDOM() {
       display: block !important;
       position: static !important;
       transform: none !important;
-      width: 1920px !important;
-      height: 1119px !important;
+      width: 1500px !important;
+      height: 1500px !important;
       margin: 0 !important;
       padding: 16px !important;
-      background-color: #F5F5F7 !important;
-      font-family: 'JetBrains Mono', monospace !important;
+      background-color: #121212 !important;
+      font-family: monospace;
     `;
   }
 
@@ -73,13 +73,16 @@ export async function handleShare() {
         scale: 2,
         logging: true,
         onclone: (clonedDoc) => {
+          document.querySelectorAll('style[data-next-font]').forEach((style) => {
+    clonedDoc.head.appendChild(style.cloneNode(true));
+  });
           const clonedDiv = clonedDoc.querySelector(
             ".share-card-to-capture",
           ) as HTMLElement;
           if (clonedDiv) {
             clonedDiv.style.cssText = `
-              width: 1920px !important;
-              height: 1119px !important;
+              width: 1500px !important;
+              height: 1500px !important;
               display: block !important;
               visibility: visible !important;
               position: static !important;
@@ -87,7 +90,7 @@ export async function handleShare() {
               transform-origin: 0 0 !important;
               margin: 0 !important;
               padding: 0 !important;
-              font-family: 'JetBrains Mono', monospace !important;
+              font-family: monospace;
             `;
           }
         },
@@ -148,19 +151,21 @@ export async function handleDownload() {
   requestAnimationFrame(async () => {
     try {
       const canvas = await html2canvas(virtualDiv, {
-        backgroundColor: "#F5F5F7",
-        width: 1920,
-        height: 1119,
+        backgroundColor: "#121212",
+        width: 1500,
+        height: 1500,
         scale: 2,
         logging: true,
-        onclone: (clonedDoc) => {
+        onclone: (clonedDoc) => {document.querySelectorAll('style[data-next-font]').forEach((style) => {
+    clonedDoc.head.appendChild(style.cloneNode(true));
+  });
           const clonedDiv = clonedDoc.querySelector(
             ".share-card-to-capture",
           ) as HTMLElement;
           if (clonedDiv) {
             clonedDiv.style.cssText = `
-              width: 1920px !important;
-              height: 1119px !important;
+              width: 1500px !important;
+              height: 1500px !important;
               display: block !important;
               visibility: visible !important;
               position: static !important;
@@ -168,7 +173,7 @@ export async function handleDownload() {
               transform-origin: 0 0 !important;
               margin: 0 !important;
               padding: 0 !important;
-              font-family: 'JetBrains Mono', monospace !important;
+              font-family: monospace;
             `;
           }
         },
