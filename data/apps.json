@@ -10,8 +10,16 @@
                 { "name": "Apple Mail", "logo": "/logos/apple_mail.png" }
             ],
             "private_alternatives": [
-                { "name": "Proton Mail", "logo": "/logos/protonmail.png" },
-                { "name": "Tuta Mail", "logo": "/logos/tutamail.png" }
+                {
+                    "id": "proton_mail",
+                    "name": "Proton Mail",
+                    "logo": "/logos/protonmail.png"
+                },
+                {
+                    "id": "tuta_mail",
+                    "name": "Tuta Mail",
+                    "logo": "/logos/tutamail.png"
+                }
             ]
         },
         {
@@ -24,10 +32,26 @@
                 { "name": "iMessage", "logo": "/logos/imessage.png" }
             ],
             "private_alternatives": [
-                { "name": "Signal", "logo": "/logos/signal.png" },
-                { "name": "Element", "logo": "/logos/element.png" },
-                { "name": "SimpleX Chat", "logo": "/logos/simplex_chat.png" },
-                { "name": "Session", "logo": "/logos/session.png" }
+                {
+                    "id": "signal",
+                    "name": "Signal",
+                    "logo": "/logos/signal.png"
+                },
+                {
+                    "id": "element",
+                    "name": "Element",
+                    "logo": "/logos/element.png"
+                },
+                {
+                    "id": "simplex_chat",
+                    "name": "SimpleX Chat",
+                    "logo": "/logos/simplex_chat.png"
+                },
+                {
+                    "id": "session",
+                    "name": "Session",
+                    "logo": "/logos/session.png"
+                }
             ]
         },
         {
@@ -40,9 +64,17 @@
                 { "name": "Opera", "logo": "/logos/opera.png" }
             ],
             "private_alternatives": [
-                { "name": "Brave", "logo": "/logos/brave.png" },
-                { "name": "Firefox", "logo": "/logos/firefox.png" },
-                { "name": "Tor Browser", "logo": "/logos/tor.png" }
+                { "id": "brave", "name": "Brave", "logo": "/logos/brave.png" },
+                {
+                    "id": "firefox",
+                    "name": "Firefox",
+                    "logo": "/logos/firefox.png"
+                },
+                {
+                    "id": "tor_browser",
+                    "name": "Tor Browser",
+                    "logo": "/logos/tor.png"
+                }
             ]
         },
         {
@@ -54,8 +86,12 @@
                 { "name": "Yahoo Search", "logo": "/logos/yahoo.png" }
             ],
             "private_alternatives": [
-                { "name": "Kagi", "logo": "/logos/kagi.png" },
-                { "name": "DuckDuckGo", "logo": "/logos/duckduckgo.png" }
+                { "id": "kagi", "name": "Kagi", "logo": "/logos/kagi.png" },
+                {
+                    "id": "duckduckgo",
+                    "name": "DuckDuckGo",
+                    "logo": "/logos/duckduckgo.png"
+                }
             ]
         },
         {
@@ -70,15 +106,25 @@
             ],
             "private_alternatives": [
                 {
+                    "id": "standard_notes",
                     "name": "Standard Notes",
                     "logo": "/logos/standard_notes.png"
                 },
                 {
+                    "id": "notesnook",
                     "name": "Notesnook",
                     "logo": "/logos/notesnook.png"
                 },
-                { "name": "Joplin", "logo": "/logos/joplin.png" },
-                { "name": "Obsidian", "logo": "/logos/obsidian.png" }
+                {
+                    "id": "joplin",
+                    "name": "Joplin",
+                    "logo": "/logos/joplin.png"
+                },
+                {
+                    "id": "obsidian",
+                    "name": "Obsidian",
+                    "logo": "/logos/obsidian.png"
+                }
             ]
         },
         {
@@ -95,12 +141,21 @@
                 { "name": "Dropbox", "logo": "/logos/dropbox.png" }
             ],
             "private_alternatives": [
-                { "name": "Ente Photos", "logo": "/logos/ente.png" },
                 {
+                    "id": "ente_photos",
+                    "name": "Ente Photos",
+                    "logo": "/logos/ente.png"
+                },
+                {
+                    "id": "nextcloud_photos",
                     "name": "Nextcloud Photos",
                     "logo": "/logos/nextcloud_photos.png"
                 },
-                { "name": "PhotoPrism", "logo": "/logos/photoprism.png" }
+                {
+                    "id": "photoprism",
+                    "name": "PhotoPrism",
+                    "logo": "/logos/photoprism.png"
+                }
             ]
         },
         {
@@ -113,9 +168,21 @@
                 { "name": "iCloud", "logo": "/logos/icloud.png" }
             ],
             "private_alternatives": [
-                { "name": "Nextcloud", "logo": "/logos/nextcloud.png" },
-                { "name": "Proton Drive", "logo": "/logos/proton_drive.png" },
-                { "name": "pCloud", "logo": "/logos/pcloud.png" }
+                {
+                    "id": "nextcloud",
+                    "name": "Nextcloud",
+                    "logo": "/logos/nextcloud.png"
+                },
+                {
+                    "id": "proton_drive",
+                    "name": "Proton Drive",
+                    "logo": "/logos/proton_drive.png"
+                },
+                {
+                    "id": "pcloud",
+                    "name": "pCloud",
+                    "logo": "/logos/pcloud.png"
+                }
             ]
         },
         {
@@ -137,14 +204,17 @@
             ],
             "private_alternatives": [
                 {
+                    "id": "proton_calendar",
                     "name": "Proton Calendar",
                     "logo": "/logos/proton_calendar.png"
                 },
                 {
+                    "id": "nextcloud_calendar",
                     "name": "Nextcloud Calendar",
                     "logo": "/logos/nextcloud_calendar.png"
                 },
                 {
+                    "id": "tuta_calendar",
                     "name": "Tuta Calendar",
                     "logo": "/logos/tutanota_calendar.png"
                 }
@@ -163,9 +233,21 @@
                 { "name": "LastPass", "logo": "/logos/lastpass.png" }
             ],
             "private_alternatives": [
-                { "name": "Bitwarden", "logo": "/logos/bitwarden.png" },
-                { "name": "1Password", "logo": "/logos/1password.png" },
-                { "name": "KeePassXC", "logo": "/logos/keepassxc.png" }
+                {
+                    "id": "bitwarden",
+                    "name": "Bitwarden",
+                    "logo": "/logos/bitwarden.png"
+                },
+                {
+                    "id": "1password",
+                    "name": "1Password",
+                    "logo": "/logos/1password.png"
+                },
+                {
+                    "id": "keepassxc",
+                    "name": "KeePassXC",
+                    "logo": "/logos/keepassxc.png"
+                }
             ]
         },
         {
@@ -180,15 +262,24 @@
                     "name": "Microsoft Auth",
                     "logo": "/logos/microsoft_authenticator.png"
                 },
-                {
-                    "name": "Authy",
-                    "logo": "/logos/authy.png"
-                }
+                { "name": "Authy", "logo": "/logos/authy.png" }
             ],
             "private_alternatives": [
-                { "name": "Ente Auth", "logo": "/logos/ente_auth.png" },
-                { "name": "Aegis Auth", "logo": "/logos/aegis.png" },
-                { "name": "TOTP.app", "logo": "/logos/totp.png" }
+                {
+                    "id": "ente_auth",
+                    "name": "Ente Auth",
+                    "logo": "/logos/ente_auth.png"
+                },
+                {
+                    "id": "aegis_auth",
+                    "name": "Aegis Auth",
+                    "logo": "/logos/aegis.png"
+                },
+                {
+                    "id": "totp_app",
+                    "name": "TOTP.app",
+                    "logo": "/logos/totp.png"
+                }
             ]
         },
         {
@@ -198,9 +289,17 @@
                 { "name": "No VPN", "logo": "/logos/no_vpn.png" }
             ],
             "private_alternatives": [
-                { "name": "Mullvad VPN", "logo": "/logos/mullvad.png" },
-                { "name": "Proton VPN", "logo": "/logos/proton_vpn.png" },
-                { "name": "IVPN", "logo": "/logos/ivpn.png" }
+                {
+                    "id": "mullvad_vpn",
+                    "name": "Mullvad VPN",
+                    "logo": "/logos/mullvad.png"
+                },
+                {
+                    "id": "proton_vpn",
+                    "name": "Proton VPN",
+                    "logo": "/logos/proton_vpn.png"
+                },
+                { "id": "ivpn", "name": "IVPN", "logo": "/logos/ivpn.png" }
             ]
         },
         {
@@ -211,9 +310,17 @@
                 { "name": "macOS", "logo": "/logos/macos.png" }
             ],
             "private_alternatives": [
-                { "name": "Ubuntu", "logo": "/logos/ubuntu.png" },
-                { "name": "Fedora", "logo": "/logos/fedora.png" },
-                { "name": "Tails", "logo": "/logos/tails.png" }
+                {
+                    "id": "ubuntu",
+                    "name": "Ubuntu",
+                    "logo": "/logos/ubuntu.png"
+                },
+                {
+                    "id": "fedora",
+                    "name": "Fedora",
+                    "logo": "/logos/fedora.png"
+                },
+                { "id": "tails", "name": "Tails", "logo": "/logos/tails.png" }
             ]
         },
         {
@@ -224,25 +331,46 @@
                 { "name": "iOS", "logo": "/logos/ios.png" }
             ],
             "private_alternatives": [
-                { "name": "GrapheneOS", "logo": "/logos/grapheneos.png" },
-                { "name": "CalyxOS", "logo": "/logos/calyxos.png" },
-                { "name": "LineageOS", "logo": "/logos/lineageos.png" }
+                {
+                    "id": "grapheneos",
+                    "name": "GrapheneOS",
+                    "logo": "/logos/grapheneos.png"
+                },
+                {
+                    "id": "calyxos",
+                    "name": "CalyxOS",
+                    "logo": "/logos/calyxos.png"
+                },
+                {
+                    "id": "lineageos",
+                    "name": "LineageOS",
+                    "logo": "/logos/lineageos.png"
+                }
             ]
         },
         {
             "name": "App Store",
             "order": 14,
             "mainstream_apps": [
-                {
-                    "name": "Play Store",
-                    "logo": "/logos/google_play.png"
-                },
+                { "name": "Play Store", "logo": "/logos/google_play.png" },
                 { "name": "App Store", "logo": "/logos/app_store.png" }
             ],
             "private_alternatives": [
-                { "name": "F-Droid", "logo": "/logos/fdroid.png" },
-                { "name": "Aurora Store", "logo": "/logos/aurora.png" },
-                { "name": "APKPure", "logo": "/logos/apkpure.png" }
+                {
+                    "id": "f_droid",
+                    "name": "F-Droid",
+                    "logo": "/logos/fdroid.png"
+                },
+                {
+                    "id": "aurora_store",
+                    "name": "Aurora Store",
+                    "logo": "/logos/aurora.png"
+                },
+                {
+                    "id": "apkpure",
+                    "name": "APKPure",
+                    "logo": "/logos/apkpure.png"
+                }
             ]
         }
     ]

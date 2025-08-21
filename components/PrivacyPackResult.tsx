@@ -18,7 +18,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
     return (
         <div
             style={{
-                display: "block",
+                display: "none",
                 width: "1500px",
                 height: "1500px",
                 backgroundColor: "#121212",

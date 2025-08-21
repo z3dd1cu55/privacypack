@@ -9,7 +9,7 @@ import {
     SquareCheckBig,
     ChevronDown,
 } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -21,6 +21,12 @@ import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
 import { handleDownload, handleShare } from "@/lib/utils";
 
+interface AppCount {
+    id: string;
+    name: string;
+    count: number;
+}
+
 export default function App() {
     const [pack, setPack] = useState(() => {
         const initialPack = data.categories.map((category) => ({
@@ -28,13 +34,85 @@ export default function App() {
             order: category.order,
             mainstream_app_name: category.mainstream_apps[0].name,
             mainstream_app_logo: category.mainstream_apps[0].logo,
-            private_alternative_name: category.private_alternatives[0].name,
-            private_alternative_logo: category.private_alternatives[0].logo,
+            private_alternative_name: "",
+            private_alternative_logo: "",
             chosen: true,
         }));
 
         return initialPack;
     });
+
+    const [appCounts, setAppCounts] = useState<AppCount[]>([]);
+    const [loadingCounts, setLoadingCounts] = useState(true);
+
+    useEffect(() => {
+        fetchAppCounts();
+    }, []);
+
+    const fetchAppCounts = async () => {
+        try {
+            const response = await fetch("/api/apps");
+            const data = (await response.json()) as {
+                success: boolean;
+                apps: AppCount[];
+            };
+
+            if (data.success) {
+                setAppCounts(data.apps);
+            }
+        } catch (error) {
+            console.error("Failed to fetch app counts:", error);
+        } finally {
+            setLoadingCounts(false);
+        }
+    };
+
+    const getAppCount = (appName: string): number => {
+        const app = appCounts.find(
+            (a) => a.id === appName || a.name === appName,
+        );
+        return app?.count || 0;
+    };
+
+    const incrementAppCounts = async (appNames: string[]) => {
+        try {
+            await fetch("/api/apps/increment", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    appIds: appNames.filter((name) => name.length > 0),
+                }),
+            });
+        } catch (error) {
+            console.error("Failed to increment app counts:", error);
+        }
+    };
+
+    const handleDownloadClick = async () => {
+        const selectedApps = pack
+            .filter((item) => item.chosen && item.private_alternative_name)
+            .map((item) => item.private_alternative_name);
+
+        if (selectedApps.length > 0) {
+            await incrementAppCounts(selectedApps);
+        }
+
+        handleDownload();
+    };
+
+    const handleShareClick = async () => {
+        const selectedApps = pack
+            .filter((item) => item.chosen && item.private_alternative_name)
+            .map((item) => item.private_alternative_name);
+
+        if (selectedApps.length > 0) {
+            await incrementAppCounts(selectedApps);
+        }
+
+        handleShare();
+    };
 
     const handleSelectApp = (
         categoryName: string,
@@ -89,7 +167,7 @@ export default function App() {
                             Where's my app?
                         </a>
                         <button
-                            onClick={handleDownload}
+                            onClick={handleDownloadClick}
                             className="hidden h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80 sm:flex"
                         >
                             <Download color="black" size={18} />
@@ -195,9 +273,8 @@ export default function App() {
                                             >
                                                 <div className="h-18 w-18 bg-[#181818] lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40"></div>
                                                 <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
-                                                    {
-                                                        item.private_alternative_name
-                                                    }
+                                                    {item.private_alternative_name ||
+                                                        "[Pick]"}
                                                 </div>
                                                 <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
@@ -231,7 +308,9 @@ export default function App() {
                                                                 </span>
                                                             </div>
                                                             <DropdownMenuShortcut className="tracking-tighter">
-                                                                [in 2025 packs]
+                                                                {loadingCounts
+                                                                    ? "[loading...]"
+                                                                    : `[${getAppCount(private_alternative.name)} in packs]`}
                                                             </DropdownMenuShortcut>
                                                         </DropdownMenuItem>
                                                     ),
@@ -245,14 +324,14 @@ export default function App() {
                     })}
                 </div>
                 <button
-                    onClick={handleShare}
+                    onClick={handleShareClick}
                     className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
                 >
                     <Share2 color="black" size={16} />
                     <span className="text-lg">SHARE</span>
                 </button>
                 <button
-                    onClick={handleDownload}
+                    onClick={handleDownloadClick}
                     className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
                 >
                     <Download color="white" size={16} />
