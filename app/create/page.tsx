@@ -21,7 +21,6 @@ import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
 import { handleDownload, handleShare } from "@/lib/utils";
 import { toast } from "sonner";
-import { duration } from "html2canvas-pro/dist/types/css/property-descriptors/duration";
 
 interface AppCount {
     id: string;

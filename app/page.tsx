@@ -1,5 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Home() {
     return (
@@ -22,35 +31,89 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center md:mt-44">
                 <div className="flex flex-col items-center">
-                    <h1 className="green-text ml-2 pr-2 text-6xl font-bold tracking-[-0.09em] md:text-8xl">
+                    <h1 className="green-text xs:text-6xl ml-2 pr-2 text-5xl font-bold tracking-[-0.09em] md:text-8xl">
                         PrivacyPack
                     </h1>
-                    <p className="mt-4 flex flex-col text-center text-lg font-semibold tracking-tighter text-white/50 md:text-2xl">
+                    <p className="xs:text-lg mt-4 flex flex-col text-center text-base font-semibold tracking-tighter text-white/50 md:text-2xl">
                         YOUR PRIVACY STORY, IN ONE CARD
                     </p>
                     <Link
-                        href="/app"
+                        href="/create"
                         className="mt-6 items-center justify-center bg-white px-10 py-4 text-sm font-semibold text-black transition-all duration-150 hover:bg-white/80"
                     >
                         CREATE YOUR PACK
                     </Link>
                 </div>
             </div>
-            <div className="flex w-full flex-col items-center gap-3 md:my-32 md:w-[850px]">
-                <div className="w-full">
-                    <Image
-                        src="/sample-privacy-pack.png"
-                        alt="Sample Privacy Pack"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        className="h-auto w-full"
-                        priority
-                    />
-                </div>
-                <div className="text-sm text-black/60 italic">
-                    Brogio&#39;s PrivacyPack
-                </div>
+            <div className="flex w-full flex-col items-center gap-3 md:my-32 md:w-[640px]">
+                <Carousel
+                    plugins={[
+                        Autoplay({
+                            delay: 3000,
+                        }),
+                    ]}
+                    className="cursor-grab select-none"
+                    onMouseDown={(e) =>
+                        e.currentTarget.classList.add("cursor-grabbing")
+                    }
+                    onMouseUp={(e) =>
+                        e.currentTarget.classList.remove("cursor-grabbing")
+                    }
+                    onMouseLeave={(e) =>
+                        e.currentTarget.classList.remove("cursor-grabbing")
+                    }
+                >
+                    <CarouselContent>
+                        <CarouselItem>
+                            <div className="w-full">
+                                <Image
+                                    src="/sample-privacy-pack-1.png"
+                                    alt="Sample Privacy Pack 1"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    className="h-auto w-full"
+                                    priority
+                                />
+                            </div>
+                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                                Brogio&#39;s PrivacyPack
+                            </div>
+                        </CarouselItem>
+                        <CarouselItem>
+                            <div className="w-full">
+                                <Image
+                                    src="/sample-privacy-pack-2.png"
+                                    alt="Sample Privacy Pack 2"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    className="h-auto w-full"
+                                    priority
+                                />
+                            </div>
+                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                                Brogio&#39;s PrivacyPack
+                            </div>
+                        </CarouselItem>
+                        <CarouselItem>
+                            <div className="w-full">
+                                <Image
+                                    src="/sample-privacy-pack-3.png"
+                                    alt="Sample Privacy Pack 3"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    className="h-auto w-full"
+                                    priority
+                                />
+                            </div>
+                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                                Brogio&#39;s PrivacyPack
+                            </div>
+                        </CarouselItem>
+                    </CarouselContent>
+                </Carousel>
             </div>
         </div>
     );
