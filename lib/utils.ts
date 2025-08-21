@@ -67,9 +67,9 @@ export async function handleShare() {
   requestAnimationFrame(async () => {
     try {
       const canvas = await html2canvas(virtualDiv, {
-        backgroundColor: "#000",
-        width: 423,
-        height: 752,
+        backgroundColor: "#121212",
+        width: 1500,
+        height: 1500,
         scale: 2,
         logging: true,
         onclone: (clonedDoc) => {

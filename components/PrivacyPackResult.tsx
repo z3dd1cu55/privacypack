@@ -7,9 +7,9 @@ interface PrivacyPackResultProps {
         category: string;
         order: number;
         mainstream_app_name: string;
-        mainstream_app_logo: string;
+        mainstream_app_id: string;
         private_alternative_name: string;
-        private_alternative_logo: string;
+        private_alternative_id: string;
         chosen: boolean;
     }>;
 }
@@ -48,7 +48,16 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                             className="group relative flex h-[280px] w-[270px] flex-row items-center justify-between rounded-md pt-6 transition"
                         >
                             <div className="flex h-full flex-col items-center transition outline-none">
-                                <div className="h-[116px] w-[116px] bg-[#212121]"></div>
+                                <div className="h-[116px] w-[116px]">
+                                    <Image
+                                        src={`/app-logos/${item.mainstream_app_id}.jpg`}
+                                        alt={item.mainstream_app_name}
+                                        width={0}
+                                        height={0}
+                                        sizes="100vw"
+                                        className="h-auto w-full"
+                                    />
+                                </div>
                                 <div className="mt-3 max-w-[116px] text-center text-[25px] leading-tight tracking-tight text-[#aeaeae]">
                                     {item.mainstream_app_name}
                                 </div>
@@ -56,11 +65,20 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                             <div className="-mt-32">
                                 <ArrowRight
                                     size={24}
-                                    className="text-[#aeaeae]"
+                                    className="text-[#e6e6e6]"
                                 />
                             </div>
                             <div className="flex h-full flex-col items-center transition outline-none">
-                                <div className="h-[116px] w-[116px] bg-[#212121]"></div>
+                                <div className="h-[116px] w-[116px]">
+                                    <Image
+                                        src={`/app-logos/${item.private_alternative_id}.jpg`}
+                                        alt={item.private_alternative_name}
+                                        width={0}
+                                        height={0}
+                                        sizes="100vw"
+                                        className="h-auto w-full"
+                                    />
+                                </div>
                                 <div className="mt-3 max-w-[116px] text-center text-[25px] leading-tight tracking-tight text-[#aeaeae]">
                                     {item.private_alternative_name}
                                 </div>
@@ -71,7 +89,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
             </div>
             <div className="flex w-full flex-row items-center justify-end gap-3 pr-12 text-2xl text-[#626262]">
                 <span>An initiative by</span>
-                <div className="w-16">
+                <div className="w-22">
                     <Image
                         src="/ente.svg"
                         alt="Ente logo"

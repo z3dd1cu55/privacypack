@@ -21,6 +21,7 @@ import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
 import { handleDownload, handleShare } from "@/lib/utils";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface AppCount {
     id: string;
@@ -33,14 +34,12 @@ export default function App() {
         const initialPack = data.categories.map((category) => ({
             category: category.name,
             order: category.order,
+            mainstream_app_id: category.mainstream_apps[0].id,
             mainstream_app_name: category.mainstream_apps[0].name,
-            mainstream_app_logo: category.mainstream_apps[0].logo,
             private_alternative_id: "",
             private_alternative_name: "",
-            private_alternative_logo: "",
             chosen: true,
         }));
-
         return initialPack;
     });
 
@@ -112,12 +111,13 @@ export default function App() {
         }
 
         action();
+
         await incrementAppCounts(selectedIds);
     };
 
     const handleSelectApp = (
         categoryName: string,
-        app: { id?: string; name: string; logo: string },
+        app: { id: string; name: string },
         type: "mainstream" | "private",
     ) => {
         setPack((prev) =>
@@ -126,14 +126,13 @@ export default function App() {
                     ? type === "mainstream"
                         ? {
                               ...item,
+                              mainstream_app_id: app.id,
                               mainstream_app_name: app.name,
-                              mainstream_app_logo: app.logo,
                           }
                         : {
                               ...item,
-                              private_alternative_id: app.id || "",
+                              private_alternative_id: app.id,
                               private_alternative_name: app.name,
-                              private_alternative_logo: app.logo,
                           }
                     : item,
             ),
@@ -162,7 +161,7 @@ export default function App() {
                     </Link>
                     <div className="flex flex-row items-center gap-8">
                         <a
-                            href="https://github.com/ente-io/privacypack"
+                            href="https://github.com/ente-io/privacypack?tab=readme-ov-file#adding-new-apps"
                             target="_blank"
                             className="hidden text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:block"
                         >
@@ -170,7 +169,7 @@ export default function App() {
                         </a>
                         <button
                             onClick={() => processSelection(handleDownload)}
-                            className="hidden h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80 sm:flex"
+                            className="flex h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80"
                         >
                             <Download color="black" size={18} />
                             <span>DOWNLOAD</span>
@@ -215,7 +214,18 @@ export default function App() {
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
-                                                <div className="h-18 w-18 bg-[#181818] lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40"></div>
+                                                <div className="h-18 w-18 lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40">
+                                                    <Image
+                                                        src={`/app-logos/${item.mainstream_app_id}.jpg`}
+                                                        alt={
+                                                            item.mainstream_app_name
+                                                        }
+                                                        width={0}
+                                                        height={0}
+                                                        sizes="100vw"
+                                                        className="h-auto w-full"
+                                                    />
+                                                </div>
                                                 <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {item.mainstream_app_name}
                                                 </div>
@@ -242,7 +252,18 @@ export default function App() {
                                                             }
                                                             className="flex cursor-pointer flex-row items-center gap-2"
                                                         >
-                                                            <div className="h-5 w-5 bg-gray-800"></div>
+                                                            <div className="h-5 w-5">
+                                                                <Image
+                                                                    src={`/app-logos/${mainstream_app.id}.jpg`}
+                                                                    alt={
+                                                                        mainstream_app.name
+                                                                    }
+                                                                    width={0}
+                                                                    height={0}
+                                                                    sizes="100vw"
+                                                                    className="h-auto w-full"
+                                                                />
+                                                            </div>
                                                             <span className="text-xs sm:text-sm">
                                                                 {
                                                                     mainstream_app.name
@@ -273,7 +294,22 @@ export default function App() {
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
-                                                <div className="h-18 w-18 bg-[#181818] lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40"></div>
+                                                <div
+                                                    className={`h-18 w-18 lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${!item.private_alternative_id && "bg-[#383838]"}`}
+                                                >
+                                                    {item.private_alternative_id && (
+                                                        <Image
+                                                            src={`/app-logos/${item.private_alternative_id}.jpg`}
+                                                            alt={
+                                                                item.private_alternative_name
+                                                            }
+                                                            width={0}
+                                                            height={0}
+                                                            sizes="100vw"
+                                                            className="h-auto w-full"
+                                                        />
+                                                    )}
+                                                </div>
                                                 <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {item.private_alternative_name ||
                                                         "[Pick]"}
@@ -315,7 +351,22 @@ export default function App() {
                                                                 className="cursor-pointer"
                                                             >
                                                                 <div className="mr-5 flex flex-row items-center gap-2">
-                                                                    <div className="h-5 w-5 bg-gray-800"></div>
+                                                                    <div className="h-5 w-5">
+                                                                        <Image
+                                                                            src={`/app-logos/${private_alternative.id}.jpg`}
+                                                                            alt={
+                                                                                private_alternative.name
+                                                                            }
+                                                                            width={
+                                                                                0
+                                                                            }
+                                                                            height={
+                                                                                0
+                                                                            }
+                                                                            sizes="100vw"
+                                                                            className="h-auto w-full"
+                                                                        />
+                                                                    </div>
                                                                     <span className="text-xs sm:text-sm">
                                                                         {
                                                                             private_alternative.name
@@ -353,7 +404,7 @@ export default function App() {
                     <span className="text-lg">DOWNLOAD</span>
                 </button>
                 <a
-                    href="https://github.com/ente-io/privacypack"
+                    href="https://github.com/ente-io/privacypack?tab=readme-ov-file#adding-new-apps"
                     target="_blank"
                     className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:hidden"
                 >

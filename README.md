@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PrivacyPack.org
 
-## Getting Started
+Pick the mainstream apps you used before, show the privacy-respecting tools you’ve switched to, and share your privacy journey!
 
-First, run the development server:
+Create your pack at [PrivacyPack.org](https://privacypack.org).
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+### Local Development
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/ente-io/privacypack.git
+cd privacypack
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Testing API and database (to store count of apps in privacy packs)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Setup the database
 
-## Learn More
+```bash
+npx wrangler d1 create privacypack-db --local
 
-To learn more about Next.js, take a look at the following resources:
+npx wrangler d1 migrations apply privacypack-db --local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Start the preview server that simulates how the app will run on Cloudflare
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run preview
+```
 
-## Deploy on Vercel
+The application will be available at `http://localhost:8787`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Adding new apps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+New apps can be added to the catalog by modifying `/data/apps.json` and opening a PR. Each app belongs to a category and is either a mainstream app or a privacy-focused alternative.
+
+### App logo requirements
+
+When adding a new app, please ensure the logo meets these specifications:
+
+- Format: JPG
+- Resolution: 200x200px
+- File size: < 50KB
+- Location: Place the logo file in `/public/app-logos/{app_id}.jpg`
+- Padding: There should be sufficient padding around the logo
+
+## License
+
+PrivacyPack is distributed under the [MIT license](/LICENSE).

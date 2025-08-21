@@ -45,8 +45,12 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-            <div className="flex w-full flex-col items-center gap-3 md:my-32 md:w-[640px]">
+            <div className="flex w-[64%] flex-col items-center gap-3 md:my-32 md:w-[640px]">
                 <Carousel
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
                     plugins={[
                         Autoplay({
                             delay: 3000,
@@ -72,11 +76,11 @@ export default function Home() {
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="h-auto w-full"
+                                    className="h-auto w-full border border-[#404040]"
                                     priority
                                 />
                             </div>
-                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                            <div className="mx-auto mt-2 w-fit text-sm text-[#aeaeae] italic">
                                 Brogio&#39;s PrivacyPack
                             </div>
                         </CarouselItem>
@@ -88,11 +92,11 @@ export default function Home() {
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="h-auto w-full"
+                                    className="h-auto w-full border border-[#404040]"
                                     priority
                                 />
                             </div>
-                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                            <div className="mx-auto mt-2 w-fit text-sm text-[#aeaeae] italic">
                                 Brogio&#39;s PrivacyPack
                             </div>
                         </CarouselItem>
@@ -104,11 +108,11 @@ export default function Home() {
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="h-auto w-full"
+                                    className="h-auto w-full border border-[#404040]"
                                     priority
                                 />
                             </div>
-                            <div className="mx-auto w-fit text-sm text-[#aeaeae] italic">
+                            <div className="mx-auto mt-2 w-fit text-sm text-[#aeaeae] italic">
                                 Brogio&#39;s PrivacyPack
                             </div>
                         </CarouselItem>
