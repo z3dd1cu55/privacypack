@@ -49,7 +49,7 @@ export default function Home() {
                     />
                 </div>
                 <div className="text-sm text-black/60 italic">
-                    Brogio's PrivacyPack
+                    Brogio&#39;s PrivacyPack
                 </div>
             </div>
         </div>

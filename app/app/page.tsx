@@ -20,6 +20,8 @@ import {
 import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
 import { handleDownload, handleShare } from "@/lib/utils";
+import { toast } from "sonner";
+import { duration } from "html2canvas-pro/dist/types/css/property-descriptors/duration";
 
 interface AppCount {
     id: string;
@@ -34,6 +36,7 @@ export default function App() {
             order: category.order,
             mainstream_app_name: category.mainstream_apps[0].name,
             mainstream_app_logo: category.mainstream_apps[0].logo,
+            private_alternative_id: "",
             private_alternative_name: "",
             private_alternative_logo: "",
             chosen: true,
@@ -67,14 +70,12 @@ export default function App() {
         }
     };
 
-    const getAppCount = (appName: string): number => {
-        const app = appCounts.find(
-            (a) => a.id === appName || a.name === appName,
-        );
+    const getAppCount = (appId: string): number => {
+        const app = appCounts.find((a) => a.id === appId);
         return app?.count || 0;
     };
 
-    const incrementAppCounts = async (appNames: string[]) => {
+    const incrementAppCounts = async (appIds: string[]) => {
         try {
             await fetch("/api/apps/increment", {
                 method: "POST",
@@ -82,7 +83,7 @@ export default function App() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    appIds: appNames.filter((name) => name.length > 0),
+                    appIds: appIds.filter((id) => id.length > 0),
                 }),
             });
         } catch (error) {
@@ -90,33 +91,34 @@ export default function App() {
         }
     };
 
-    const handleDownloadClick = async () => {
-        const selectedApps = pack
-            .filter((item) => item.chosen && item.private_alternative_name)
-            .map((item) => item.private_alternative_name);
+    const processSelection = async (action: () => void) => {
+        const chosenItems = pack.filter((item) => item.chosen);
+        const unselectedAlts = chosenItems.filter(
+            (item) => !item.private_alternative_id,
+        );
+        const selectedIds = chosenItems
+            .filter((item) => item.private_alternative_id)
+            .map((item) => item.private_alternative_id);
 
-        if (selectedApps.length > 0) {
-            await incrementAppCounts(selectedApps);
+        if (unselectedAlts.length > 0) {
+            const missingCategories = unselectedAlts
+                .map((item) => item.category)
+                .join(", ");
+
+            toast.error(
+                `Please pick alternatives for: ${missingCategories}, or unselect the categories.`,
+                { duration: 7000 },
+            );
+            return;
         }
 
-        handleDownload();
-    };
-
-    const handleShareClick = async () => {
-        const selectedApps = pack
-            .filter((item) => item.chosen && item.private_alternative_name)
-            .map((item) => item.private_alternative_name);
-
-        if (selectedApps.length > 0) {
-            await incrementAppCounts(selectedApps);
-        }
-
-        handleShare();
+        action();
+        await incrementAppCounts(selectedIds);
     };
 
     const handleSelectApp = (
         categoryName: string,
-        app: any,
+        app: { id?: string; name: string; logo: string },
         type: "mainstream" | "private",
     ) => {
         setPack((prev) =>
@@ -130,6 +132,7 @@ export default function App() {
                           }
                         : {
                               ...item,
+                              private_alternative_id: app.id || "",
                               private_alternative_name: app.name,
                               private_alternative_logo: app.logo,
                           }
@@ -164,10 +167,10 @@ export default function App() {
                             target="_blank"
                             className="hidden text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:block"
                         >
-                            Where's my app?
+                            Where&#39;s my app?
                         </a>
                         <button
-                            onClick={handleDownloadClick}
+                            onClick={() => processSelection(handleDownload)}
                             className="hidden h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80 sm:flex"
                         >
                             <Download color="black" size={18} />
@@ -284,37 +287,50 @@ export default function App() {
                                                 align="end"
                                                 side="bottom"
                                             >
-                                                {category?.private_alternatives.map(
-                                                    (private_alternative) => (
-                                                        <DropdownMenuItem
-                                                            key={
-                                                                private_alternative.name
-                                                            }
-                                                            onClick={() =>
-                                                                handleSelectApp(
-                                                                    item.category,
-                                                                    private_alternative,
-                                                                    "private",
-                                                                )
-                                                            }
-                                                            className="cursor-pointer"
-                                                        >
-                                                            <div className="mr-5 flex flex-row items-center gap-2">
-                                                                <div className="h-5 w-5 bg-gray-800"></div>
-                                                                <span className="text-xs sm:text-sm">
-                                                                    {
-                                                                        private_alternative.name
-                                                                    }
-                                                                </span>
-                                                            </div>
-                                                            <DropdownMenuShortcut className="tracking-tighter">
-                                                                {loadingCounts
-                                                                    ? "[loading...]"
-                                                                    : `[${getAppCount(private_alternative.name)} in packs]`}
-                                                            </DropdownMenuShortcut>
-                                                        </DropdownMenuItem>
-                                                    ),
-                                                )}
+                                                {category?.private_alternatives
+                                                    .map((alt) => ({
+                                                        ...alt,
+                                                        count: getAppCount(
+                                                            alt.id,
+                                                        ),
+                                                    }))
+                                                    .sort(
+                                                        (a, b) =>
+                                                            b.count - a.count,
+                                                    )
+                                                    .map(
+                                                        (
+                                                            private_alternative,
+                                                        ) => (
+                                                            <DropdownMenuItem
+                                                                key={
+                                                                    private_alternative.id
+                                                                }
+                                                                onClick={() =>
+                                                                    handleSelectApp(
+                                                                        item.category,
+                                                                        private_alternative,
+                                                                        "private",
+                                                                    )
+                                                                }
+                                                                className="cursor-pointer"
+                                                            >
+                                                                <div className="mr-5 flex flex-row items-center gap-2">
+                                                                    <div className="h-5 w-5 bg-gray-800"></div>
+                                                                    <span className="text-xs sm:text-sm">
+                                                                        {
+                                                                            private_alternative.name
+                                                                        }
+                                                                    </span>
+                                                                </div>
+                                                                <DropdownMenuShortcut className="tracking-tighter">
+                                                                    {loadingCounts
+                                                                        ? "[Loading...]"
+                                                                        : `[In ${private_alternative.count} pack${private_alternative.count === 1 ? "" : "s"}]`}
+                                                                </DropdownMenuShortcut>
+                                                            </DropdownMenuItem>
+                                                        ),
+                                                    )}
                                             </DropdownMenuContent>
                                         )}
                                     </DropdownMenu>
@@ -324,14 +340,14 @@ export default function App() {
                     })}
                 </div>
                 <button
-                    onClick={handleShareClick}
+                    onClick={() => processSelection(handleShare)}
                     className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
                 >
                     <Share2 color="black" size={16} />
                     <span className="text-lg">SHARE</span>
                 </button>
                 <button
-                    onClick={handleDownloadClick}
+                    onClick={() => processSelection(handleDownload)}
                     className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
                 >
                     <Download color="white" size={16} />
@@ -342,10 +358,10 @@ export default function App() {
                     target="_blank"
                     className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:hidden"
                 >
-                    Where's my app?
+                    Where&#39;s my app?
                 </a>
             </div>
-            <PrivacyPackResult pack={pack} />
+            <PrivacyPackResult pack={pack.filter((item) => item.chosen)} />
         </>
     );
 }

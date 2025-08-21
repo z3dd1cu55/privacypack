@@ -95,8 +95,39 @@
             ]
         },
         {
-            "name": "Notes",
+            "name": "Photos",
             "order": 5,
+            "mainstream_apps": [
+                { "name": "Google Photos", "logo": "/logos/google_photos.png" },
+                { "name": "Apple Photos", "logo": "/logos/apple_photos.png" },
+                { "name": "Amazon Photos", "logo": "/logos/amazon_photos.png" },
+                {
+                    "name": "OneDrive Photos",
+                    "logo": "/logos/onedrive_photos.png"
+                },
+                { "name": "Dropbox", "logo": "/logos/dropbox.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "id": "ente_photos",
+                    "name": "Ente Photos",
+                    "logo": "/logos/ente.png"
+                },
+                {
+                    "id": "nextcloud_photos",
+                    "name": "Nextcloud Photos",
+                    "logo": "/logos/nextcloud_photos.png"
+                },
+                {
+                    "id": "photoprism",
+                    "name": "PhotoPrism",
+                    "logo": "/logos/photoprism.png"
+                }
+            ]
+        },
+        {
+            "name": "Notes",
+            "order": 6,
             "mainstream_apps": [
                 { "name": "Evernote", "logo": "/logos/evernote.png" },
                 { "name": "Google Keep", "logo": "/logos/google_keep.png" },
@@ -128,37 +159,6 @@
             ]
         },
         {
-            "name": "Photos",
-            "order": 6,
-            "mainstream_apps": [
-                { "name": "Google Photos", "logo": "/logos/google_photos.png" },
-                { "name": "Apple Photos", "logo": "/logos/apple_photos.png" },
-                { "name": "Amazon Photos", "logo": "/logos/amazon_photos.png" },
-                {
-                    "name": "OneDrive Photos",
-                    "logo": "/logos/onedrive_photos.png"
-                },
-                { "name": "Dropbox", "logo": "/logos/dropbox.png" }
-            ],
-            "private_alternatives": [
-                {
-                    "id": "ente_photos",
-                    "name": "Ente Photos",
-                    "logo": "/logos/ente.png"
-                },
-                {
-                    "id": "nextcloud_photos",
-                    "name": "Nextcloud Photos",
-                    "logo": "/logos/nextcloud_photos.png"
-                },
-                {
-                    "id": "photoprism",
-                    "name": "PhotoPrism",
-                    "logo": "/logos/photoprism.png"
-                }
-            ]
-        },
-        {
             "name": "Drive",
             "order": 7,
             "mainstream_apps": [
@@ -186,8 +186,70 @@
             ]
         },
         {
-            "name": "Calendar",
+            "name": "Passwords",
             "order": 8,
+            "mainstream_apps": [
+                {
+                    "name": "Google Passwords",
+                    "logo": "/logos/google_password_manager.png"
+                },
+                { "name": "iCloud Keychain", "logo": "/logos/safari.png" },
+                { "name": "Edge Passwords", "logo": "/logos/edge.png" },
+                { "name": "LastPass", "logo": "/logos/lastpass.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "id": "bitwarden",
+                    "name": "Bitwarden",
+                    "logo": "/logos/bitwarden.png"
+                },
+                {
+                    "id": "1password",
+                    "name": "1Password",
+                    "logo": "/logos/1password.png"
+                },
+                {
+                    "id": "keepassxc",
+                    "name": "KeePassXC",
+                    "logo": "/logos/keepassxc.png"
+                }
+            ]
+        },
+        {
+            "name": "2FA",
+            "order": 9,
+            "mainstream_apps": [
+                {
+                    "name": "Google Auth",
+                    "logo": "/logos/google_authenticator.png"
+                },
+                {
+                    "name": "Microsoft Auth",
+                    "logo": "/logos/microsoft_authenticator.png"
+                },
+                { "name": "Authy", "logo": "/logos/authy.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "id": "ente_auth",
+                    "name": "Ente Auth",
+                    "logo": "/logos/ente_auth.png"
+                },
+                {
+                    "id": "aegis_auth",
+                    "name": "Aegis Auth",
+                    "logo": "/logos/aegis.png"
+                },
+                {
+                    "id": "totp_app",
+                    "name": "TOTP.app",
+                    "logo": "/logos/totp.png"
+                }
+            ]
+        },
+        {
+            "name": "Calendar",
+            "order": 10,
             "mainstream_apps": [
                 {
                     "name": "Google Calendar",
@@ -221,90 +283,8 @@
             ]
         },
         {
-            "name": "Passwords",
-            "order": 9,
-            "mainstream_apps": [
-                {
-                    "name": "Google Passwords",
-                    "logo": "/logos/google_password_manager.png"
-                },
-                { "name": "iCloud Keychain", "logo": "/logos/safari.png" },
-                { "name": "Edge Passwords", "logo": "/logos/edge.png" },
-                { "name": "LastPass", "logo": "/logos/lastpass.png" }
-            ],
-            "private_alternatives": [
-                {
-                    "id": "bitwarden",
-                    "name": "Bitwarden",
-                    "logo": "/logos/bitwarden.png"
-                },
-                {
-                    "id": "1password",
-                    "name": "1Password",
-                    "logo": "/logos/1password.png"
-                },
-                {
-                    "id": "keepassxc",
-                    "name": "KeePassXC",
-                    "logo": "/logos/keepassxc.png"
-                }
-            ]
-        },
-        {
-            "name": "2FA",
-            "order": 10,
-            "mainstream_apps": [
-                {
-                    "name": "Google Auth",
-                    "logo": "/logos/google_authenticator.png"
-                },
-                {
-                    "name": "Microsoft Auth",
-                    "logo": "/logos/microsoft_authenticator.png"
-                },
-                { "name": "Authy", "logo": "/logos/authy.png" }
-            ],
-            "private_alternatives": [
-                {
-                    "id": "ente_auth",
-                    "name": "Ente Auth",
-                    "logo": "/logos/ente_auth.png"
-                },
-                {
-                    "id": "aegis_auth",
-                    "name": "Aegis Auth",
-                    "logo": "/logos/aegis.png"
-                },
-                {
-                    "id": "totp_app",
-                    "name": "TOTP.app",
-                    "logo": "/logos/totp.png"
-                }
-            ]
-        },
-        {
-            "name": "VPN",
-            "order": 11,
-            "mainstream_apps": [
-                { "name": "No VPN", "logo": "/logos/no_vpn.png" }
-            ],
-            "private_alternatives": [
-                {
-                    "id": "mullvad_vpn",
-                    "name": "Mullvad VPN",
-                    "logo": "/logos/mullvad.png"
-                },
-                {
-                    "id": "proton_vpn",
-                    "name": "Proton VPN",
-                    "logo": "/logos/proton_vpn.png"
-                },
-                { "id": "ivpn", "name": "IVPN", "logo": "/logos/ivpn.png" }
-            ]
-        },
-        {
             "name": "Desktop OS",
-            "order": 12,
+            "order": 11,
             "mainstream_apps": [
                 { "name": "Windows", "logo": "/logos/windows.png" },
                 { "name": "macOS", "logo": "/logos/macos.png" }
@@ -325,7 +305,7 @@
         },
         {
             "name": "Phone OS",
-            "order": 13,
+            "order": 12,
             "mainstream_apps": [
                 { "name": "Android", "logo": "/logos/android.png" },
                 { "name": "iOS", "logo": "/logos/ios.png" }
@@ -350,7 +330,7 @@
         },
         {
             "name": "App Store",
-            "order": 14,
+            "order": 13,
             "mainstream_apps": [
                 { "name": "Play Store", "logo": "/logos/google_play.png" },
                 { "name": "App Store", "logo": "/logos/app_store.png" }
@@ -371,6 +351,26 @@
                     "name": "APKPure",
                     "logo": "/logos/apkpure.png"
                 }
+            ]
+        },
+        {
+            "name": "VPN",
+            "order": 14,
+            "mainstream_apps": [
+                { "name": "No VPN", "logo": "/logos/no_vpn.png" }
+            ],
+            "private_alternatives": [
+                {
+                    "id": "mullvad_vpn",
+                    "name": "Mullvad VPN",
+                    "logo": "/logos/mullvad.png"
+                },
+                {
+                    "id": "proton_vpn",
+                    "name": "Proton VPN",
+                    "logo": "/logos/proton_vpn.png"
+                },
+                { "id": "ivpn", "name": "IVPN", "logo": "/logos/ivpn.png" }
             ]
         }
     ]

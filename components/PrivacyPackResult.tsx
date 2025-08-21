@@ -70,7 +70,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                 })}
             </div>
             <div className="flex w-full flex-row items-center justify-end gap-3 pr-12 text-2xl text-[#626262]">
-                <span>by</span>
+                <span>An initiative by</span>
                 <div className="w-16">
                     <Image
                         src="/ente.svg"
