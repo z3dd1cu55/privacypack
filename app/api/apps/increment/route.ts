@@ -24,7 +24,10 @@ function validateOrigin(request: NextRequest, allowedOrigins: string[]): boolean
 export async function POST(request: NextRequest) {
   try {
     const { env } = getCloudflareContext();
-    const allowedOrigins = env.ALLOWED_ORIGINS.split(",");
+    
+    const allowedOriginsString = env.ALLOWED_ORIGINS ?? process.env.ALLOWED_ORIGINS ?? "";
+
+    const allowedOrigins = allowedOriginsString.split(",");
 
     if (!validateOrigin(request, allowedOrigins)) {
       return NextResponse.json(

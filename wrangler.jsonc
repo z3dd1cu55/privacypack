@@ -25,9 +25,6 @@
       		"database_id": "6e9783e0-e11b-4768-83e3-a3f260a37a71"
 		}
 	],
-	"vars": {
-		"ALLOWED_ORIGINS": "$ALLOWED_ORIGINS"
-	}
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
