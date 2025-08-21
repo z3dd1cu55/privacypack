@@ -1,40 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-function validateOrigin(request: NextRequest, allowedOrigins: string[]): boolean {
-  const origin = request.headers.get("origin");
-  const referer = request.headers.get("referer");
-
-  if (origin && !allowedOrigins.includes(origin)) {
-    return false;
-  }
-
-  if (referer && !allowedOrigins.some((allowed) => referer.startsWith(allowed))) {
-    return false;
-  }
-
-  if (!origin && !referer) {
-    return false;
-  }
-
-  return true;
-}
-
 // GET /api/apps - Get all apps with counts
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const { env } = getCloudflareContext();
-
-    const allowedOriginsString = env.ALLOWED_ORIGINS ?? process.env.ALLOWED_ORIGINS ?? "";
-
-    const allowedOrigins = allowedOriginsString.split(",");
-
-    if (!validateOrigin(request, allowedOrigins)) {
-      return NextResponse.json(
-        { success: false, error: "Access denied" },
-        { status: 403 }
-      );
-    }
 
     const { results } = await env.DB.prepare(`
       SELECT id, count 
@@ -47,7 +17,7 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     return NextResponse.json(
-      { success: false, error: error},
+      { success: false, error },
       { status: 500 }
     );
   }

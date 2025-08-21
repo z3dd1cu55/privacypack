@@ -1,40 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-function validateOrigin(request: NextRequest, allowedOrigins: string[]): boolean {
-  const origin = request.headers.get("origin");
-  const referer = request.headers.get("referer");
-
-  if (origin && !allowedOrigins.includes(origin)) {
-    return false;
-  }
-
-  if (referer && !allowedOrigins.some((allowed) => referer.startsWith(allowed))) {
-    return false;
-  }
-
-  if (!origin && !referer) {
-    return false;
-  }
-
-  return true;
-}
-
 // POST /api/apps/increment - Increment count for specific apps
 export async function POST(request: NextRequest) {
   try {
     const { env } = getCloudflareContext();
-    
-    const allowedOriginsString = env.ALLOWED_ORIGINS ?? process.env.ALLOWED_ORIGINS ?? "";
-
-    const allowedOrigins = allowedOriginsString.split(",");
-
-    if (!validateOrigin(request, allowedOrigins)) {
-      return NextResponse.json(
-        { success: false, error: "Access denied" },
-        { status: 403 }
-      );
-    }
 
     const { appIds } = (await request.json()) as { appIds: string[] };
 
