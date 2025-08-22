@@ -62,7 +62,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                     }}
                 >
                     <Image
-                        src="/logo.png"
+                        src="/small-logo.png"
                         alt="Privacy Pack logo"
                         width={0}
                         height={0}

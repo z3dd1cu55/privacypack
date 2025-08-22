@@ -4,10 +4,9 @@ import Link from "next/link";
 import {
     ArrowRight,
     Download,
-    Square,
     Share2,
-    SquareCheckBig,
     ChevronDown,
+    Loader2,
 } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import {
@@ -108,14 +107,19 @@ export default function App() {
         }
     };
 
-    const processSelection = async (action: () => void) => {
+    const [isDownloading, setIsDownloading] = useState(false);
+    const [isSharing, setIsSharing] = useState(false);
+
+    const processSelection = async (action: () => Promise<void> | void) => {
         const selectedIds = pack
             .filter((item) => item.private_alternative_id)
             .map((item) => item.private_alternative_id);
 
-        action();
+        const actionPromise = Promise.resolve(action());
 
-        await incrementAppCounts(selectedIds);
+        incrementAppCounts(selectedIds);
+
+        return actionPromise;
     };
 
     const handleSelectApp = (
@@ -161,12 +165,29 @@ export default function App() {
                             Where&#39;s my app?
                         </a>
                         <button
-                            onClick={() => processSelection(handleDownload)}
+                            onClick={async () => {
+                                setIsDownloading(true);
+                                try {
+                                    await processSelection(handleDownload);
+                                } finally {
+                                    setIsDownloading(false);
+                                }
+                            }}
                             id="download-navbar"
-                            className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-5 text-black transition-all duration-150 hover:bg-white/80"
+                            className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-5 text-black transition-all duration-150 hover:bg-white/80 active:bg-white/80"
                         >
-                            <Download color="black" size={18} />
-                            <span>DOWNLOAD</span>
+                            {isDownloading ? (
+                                <Loader2
+                                    color="black"
+                                    size={18}
+                                    className="animate-spin"
+                                />
+                            ) : (
+                                <Download color="black" size={18} />
+                            )}
+                            <span>
+                                {isDownloading ? "DOWNLOADING..." : "DOWNLOAD"}
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -407,25 +428,59 @@ export default function App() {
                 </div>
 
                 <button
-                    onClick={() => processSelection(handleShare)}
+                    onClick={async () => {
+                        setIsSharing(true);
+                        try {
+                            await processSelection(handleShare);
+                        } finally {
+                            setIsSharing(false);
+                        }
+                    }}
                     id="share-mobile"
-                    className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
+                    className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-white text-black transition-all duration-150 active:bg-white/80 sm:hidden"
                 >
-                    <Share2 color="black" size={16} />
-                    <span className="text-lg">SHARE</span>
+                    {isSharing ? (
+                        <Loader2
+                            color="black"
+                            size={16}
+                            className="animate-spin"
+                        />
+                    ) : (
+                        <Share2 color="black" size={16} />
+                    )}
+                    <span className="text-lg">
+                        {isSharing ? "EXPORTING..." : "SHARE"}
+                    </span>
                 </button>
                 <button
-                    onClick={() => processSelection(handleDownload)}
+                    onClick={async () => {
+                        setIsDownloading(true);
+                        try {
+                            await processSelection(handleDownload);
+                        } finally {
+                            setIsDownloading(false);
+                        }
+                    }}
                     id="download-mobile"
-                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
+                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 active:bg-[#444444] sm:hidden"
                 >
-                    <Download color="white" size={16} />
-                    <span className="text-lg">DOWNLOAD</span>
+                    {isDownloading ? (
+                        <Loader2
+                            color="white"
+                            size={16}
+                            className="animate-spin"
+                        />
+                    ) : (
+                        <Download color="white" size={16} />
+                    )}
+                    <span className="text-lg">
+                        {isDownloading ? "DOWNLOADING..." : "DOWNLOAD"}
+                    </span>
                 </button>
                 <a
                     href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-new-app"
                     target="_blank"
-                    className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:hidden"
+                    className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 active:text-white active:decoration-white sm:hidden"
                 >
                     Where&#39;s my app?
                 </a>

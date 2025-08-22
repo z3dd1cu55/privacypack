@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex h-auto w-full flex-col items-center justify-normal py-16 lg:py-32 xl:py-16 2xl:py-20">
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center">
-                    <div className="h-[90px] w-[135px]">
+                    <div className="h-[50px] w-[90px] md:h-[90px] md:w-[135px]">
                         <Image
                             src="/logo.png"
                             alt="Privacy Pack logo"
@@ -20,7 +20,7 @@ export default function Home() {
                             priority
                         />
                     </div>
-                    <h1 className="green-text xs:text-6xl mt-4 ml-2 pr-2 text-5xl font-bold tracking-[-0.09em] md:text-8xl">
+                    <h1 className="green-text xs:text-6xl mt-6 ml-2 pr-2 text-5xl font-bold tracking-[-0.09em] md:mt-4 md:text-8xl">
                         PrivacyPack
                     </h1>
                     <p className="xs:text-lg mt-4 flex flex-col text-center text-base font-semibold tracking-tighter text-white/50 md:text-2xl">

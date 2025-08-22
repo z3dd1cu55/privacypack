@@ -70,7 +70,7 @@ export async function handleShare() {
         backgroundColor: "#121212",
         width: 1500,
         height: 1500,
-        scale: 2,
+        scale: 1,
         logging: true,
         onclone: (clonedDoc) => {
           document.querySelectorAll('style[data-next-font]').forEach((style) => {
@@ -154,7 +154,7 @@ export async function handleDownload() {
         backgroundColor: "#121212",
         width: 1500,
         height: 1500,
-        scale: 2,
+        scale: 1,
         logging: true,
         onclone: (clonedDoc) => {document.querySelectorAll('style[data-next-font]').forEach((style) => {
     clonedDoc.head.appendChild(style.cloneNode(true));
