@@ -76,16 +76,15 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
             <div
                 style={{
                     position: "absolute",
+                    top: "200px",
                     left: "48px",
                     right: "48px",
-                    bottom: "48px",
                     display: "grid",
                     gridTemplateColumns: "repeat(3, 1fr)",
                     gridAutoRows: "270px",
                     columnGap: "110px",
                     rowGap: "56px",
                     justifyItems: "center",
-                    alignContent: "end",
                 }}
             >
                 {pack.map((item) => {

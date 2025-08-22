@@ -140,7 +140,17 @@ export default function App() {
                     : item,
             ),
         );
+
+        if (type === "private") {
+            setShowRemove((prev) => ({ ...prev, [categoryName]: false }));
+
+            setTimeout(() => {
+                setShowRemove((prev) => ({ ...prev, [categoryName]: true }));
+            }, 500);
+        }
     };
+
+    const [showRemove, setShowRemove] = useState<Record<string, boolean>>({});
 
     return (
         <>
@@ -363,28 +373,37 @@ export default function App() {
                                                         </DropdownMenuShortcut>
                                                     </DropdownMenuItem>
                                                 ))}
-                                            {item.private_alternative_id && (
-                                                <DropdownMenuItem
-                                                    onClick={() =>
-                                                        handleSelectApp(
-                                                            item.category,
-                                                            {
-                                                                id: "",
-                                                                name: "",
-                                                            },
-                                                            "private",
-                                                        )
-                                                    }
-                                                    className="cursor-pointer rounded-lg text-red-500"
-                                                >
-                                                    <div className="mr-5 flex flex-row items-center gap-2">
-                                                        <div className="h-5 w-5" />
-                                                        <span className="text-xs sm:text-sm">
-                                                            Remove
-                                                        </span>
-                                                    </div>
-                                                </DropdownMenuItem>
-                                            )}
+                                            {item.private_alternative_id &&
+                                                showRemove[item.category] && (
+                                                    <DropdownMenuItem
+                                                        onClick={() => {
+                                                            setTimeout(() => {
+                                                                handleSelectApp(
+                                                                    item.category,
+                                                                    {
+                                                                        id: "",
+                                                                        name: "",
+                                                                    },
+                                                                    "private",
+                                                                );
+                                                                setShowRemove(
+                                                                    (prev) => ({
+                                                                        ...prev,
+                                                                        [item.category]: false,
+                                                                    }),
+                                                                );
+                                                            }, 500);
+                                                        }}
+                                                        className="cursor-pointer rounded-lg"
+                                                    >
+                                                        <div className="mr-5 flex flex-row items-center gap-2">
+                                                            <div className="h-5 w-5" />
+                                                            <span className="text-xs text-red-500 sm:text-sm">
+                                                                Remove
+                                                            </span>
+                                                        </div>
+                                                    </DropdownMenuItem>
+                                                )}
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>
