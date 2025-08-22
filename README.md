@@ -4,6 +4,8 @@ Pick the mainstream apps you used before, show the privacy-respecting tools youâ
 
 Create your pack at [PrivacyPack.org](https://privacypack.org).
 
+![PrivacyPack Banner](public/og-image.png)
+
 ## Development Setup
 
 ### Prerequisites
