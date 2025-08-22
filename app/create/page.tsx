@@ -9,7 +9,7 @@ import {
     SquareCheckBig,
     ChevronDown,
 } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -45,6 +45,27 @@ export default function App() {
 
     const [appCounts, setAppCounts] = useState<AppCount[]>([]);
     const [loadingCounts, setLoadingCounts] = useState(true);
+
+    // track which dropdown is open
+    const [openKey, setOpenKey] = useState<string | null>(null);
+    const touchKeyRef = useRef<string | null>(null);
+
+    const getTouchTriggerHandlers = (key: string) => ({
+        onPointerDown: (e: React.PointerEvent<HTMLDivElement>) => {
+            if (e.pointerType === "touch") {
+                // prevent Radix from opening immediately on pointerdown
+                e.preventDefault();
+                touchKeyRef.current = key;
+            }
+        },
+        onClick: () => {
+            // only toggle if this was a true tap
+            if (touchKeyRef.current === key) {
+                setOpenKey((prev) => (prev === key ? null : key));
+            }
+            touchKeyRef.current = null;
+        },
+    });
 
     useEffect(() => {
         fetchAppCounts();
@@ -152,7 +173,7 @@ export default function App() {
     return (
         <>
             <div className="flex w-full flex-col p-4">
-                <div className="flex w-full flex-row items-center justify-between">
+                <div className="flex w-full flex-row items-center justify-between md:px-4 md:pt-4">
                     <Link
                         href="/"
                         className="green-text pr-1 text-2xl font-bold tracking-[-0.09em]"
@@ -176,18 +197,22 @@ export default function App() {
                         </button>
                     </div>
                 </div>
-                <div className="mt-16 mb-10 grid grid-cols-1 gap-14 sm:mx-auto md:grid-cols-2 md:grid-rows-7 md:gap-20 lg:my-24 lg:gap-28 xl:my-24 xl:grid-cols-3 xl:grid-rows-5 xl:gap-16 2xl:my-32 2xl:gap-40">
+
+                <div className="mt-16 mb-10 grid grid-cols-1 gap-14 sm:mx-auto md:grid-cols-2 md:grid-rows-6 md:gap-20 lg:my-24 lg:gap-28 xl:my-24 xl:grid-cols-3 xl:grid-rows-4 xl:gap-20 2xl:my-32 2xl:gap-40">
                     {pack.map((item) => {
                         const category = data.categories.find(
                             (c) => c.name === item.category,
                         );
+
+                        const mainKey = `${item.category}-main`;
+                        const altKey = `${item.category}-alt`;
 
                         return (
                             <div
                                 key={item.category}
                                 className="flex flex-col gap-2"
                             >
-                                <div>
+                                <div className="flex flex-row items-center justify-between">
                                     <button
                                         onClick={() =>
                                             toggleChosen(item.category)
@@ -200,17 +225,30 @@ export default function App() {
                                             <Square className="h-5 w-5 text-[#9f9f9f]" />
                                         )}
                                     </button>
+                                    <div className="mx-5 h-[1px] w-full bg-[#464646]" />
+                                    <span className="whitespace-nowrap text-[#9f9f9f]">
+                                        {item.category}
+                                    </span>
                                 </div>
+
                                 <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between bg-[#181818] p-3 sm:w-auto sm:justify-normal sm:gap-3">
-                                    <DropdownMenu>
+                                    <DropdownMenu
+                                        open={openKey === mainKey}
+                                        onOpenChange={(next) =>
+                                            setOpenKey(next ? mainKey : null)
+                                        }
+                                    >
                                         <DropdownMenuTrigger
                                             asChild
                                             disabled={!item.chosen}
                                         >
                                             <div
+                                                {...getTouchTriggerHandlers(
+                                                    mainKey,
+                                                )}
                                                 className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
                                                     item.chosen
-                                                        ? "cursor-pointer"
+                                                        ? "cursor-pointer touch-pan-y"
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
@@ -223,15 +261,16 @@ export default function App() {
                                                         width={0}
                                                         height={0}
                                                         sizes="100vw"
-                                                        className="h-auto w-full"
+                                                        className="h-auto w-full rounded-2xl"
                                                     />
                                                 </div>
-                                                <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
+                                                <div className="mt-5 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {item.mainstream_app_name}
                                                 </div>
                                                 <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
                                         </DropdownMenuTrigger>
+
                                         {item.chosen && (
                                             <DropdownMenuContent
                                                 align="start"
@@ -275,6 +314,7 @@ export default function App() {
                                             </DropdownMenuContent>
                                         )}
                                     </DropdownMenu>
+
                                     <ArrowRight
                                         className={`transition ${
                                             item.chosen
@@ -282,20 +322,32 @@ export default function App() {
                                                 : "text-[#aeaeae] opacity-20"
                                         }`}
                                     />
-                                    <DropdownMenu>
+
+                                    <DropdownMenu
+                                        open={openKey === altKey}
+                                        onOpenChange={(next) =>
+                                            setOpenKey(next ? altKey : null)
+                                        }
+                                    >
                                         <DropdownMenuTrigger
                                             asChild
                                             disabled={!item.chosen}
                                         >
                                             <div
+                                                {...getTouchTriggerHandlers(
+                                                    altKey,
+                                                )}
                                                 className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
                                                     item.chosen
-                                                        ? "cursor-pointer"
+                                                        ? "cursor-pointer touch-pan-y"
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
                                                 <div
-                                                    className={`h-18 w-18 lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${!item.private_alternative_id && "bg-[#383838]"}`}
+                                                    className={`h-18 w-18 rounded-2xl lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${
+                                                        !item.private_alternative_id &&
+                                                        "bg-[#383838]"
+                                                    }`}
                                                 >
                                                     {item.private_alternative_id && (
                                                         <Image
@@ -306,17 +358,18 @@ export default function App() {
                                                             width={0}
                                                             height={0}
                                                             sizes="100vw"
-                                                            className="h-auto w-full"
+                                                            className="h-auto w-full rounded-2xl"
                                                         />
                                                     )}
                                                 </div>
-                                                <div className="mt-3 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
+                                                <div className="mt-5 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
                                                     {item.private_alternative_name ||
                                                         "[Pick]"}
                                                 </div>
                                                 <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
                                         </DropdownMenuTrigger>
+
                                         {item.chosen && (
                                             <DropdownMenuContent
                                                 align="end"
@@ -376,7 +429,12 @@ export default function App() {
                                                                 <DropdownMenuShortcut className="tracking-tighter">
                                                                     {loadingCounts
                                                                         ? "[Loading...]"
-                                                                        : `[In ${private_alternative.count} pack${private_alternative.count === 1 ? "" : "s"}]`}
+                                                                        : `[In ${private_alternative.count} pack${
+                                                                              private_alternative.count ===
+                                                                              1
+                                                                                  ? ""
+                                                                                  : "s"
+                                                                          }]`}
                                                                 </DropdownMenuShortcut>
                                                             </DropdownMenuItem>
                                                         ),
@@ -389,6 +447,7 @@ export default function App() {
                         );
                     })}
                 </div>
+
                 <button
                     onClick={() => processSelection(handleShare)}
                     className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
@@ -411,6 +470,7 @@ export default function App() {
                     Where&#39;s my app?
                 </a>
             </div>
+
             <PrivacyPackResult pack={pack.filter((item) => item.chosen)} />
         </>
     );

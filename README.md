@@ -1,6 +1,6 @@
 # PrivacyPack.org
 
-Pick the mainstream apps you used before, show the privacy-respecting tools you’ve switched to, and share your privacy journey!
+Pick the mainstream apps you used before, show the privacy-respecting tools you’ve switched to, and share your privacy wins!
 
 Create your pack at [PrivacyPack.org](https://privacypack.org).
 
@@ -26,7 +26,13 @@ cd privacypack
 npm install
 ```
 
-3. Start the development server
+3. Set up environment variables
+
+```bash
+cp .dev.vars.example .dev.vars
+```
+
+4. Start the development server
 
 ```bash
 npm run dev

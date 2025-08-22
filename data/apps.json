@@ -55,6 +55,7 @@
             ],
             "private_alternatives": [
                 { "id": "kagi", "name": "Kagi" },
+                { "id": "brave_search", "name": "Brave Search" },
                 { "id": "duckduckgo", "name": "DuckDuckGo" }
             ]
         },
@@ -76,9 +77,9 @@
             "name": "Notes",
             "order": 6,
             "mainstream_apps": [
+                { "id": "apple_notes", "name": "Apple Notes" },
                 { "id": "evernote", "name": "Evernote" },
                 { "id": "google_keep", "name": "Google Keep" },
-                { "id": "apple_notes", "name": "Apple Notes" },
                 { "id": "notion", "name": "Notion" }
             ],
             "private_alternatives": [
@@ -113,6 +114,7 @@
             "private_alternatives": [
                 { "id": "bitwarden", "name": "Bitwarden" },
                 { "id": "1password", "name": "1Password" },
+                { "id": "proton_pass", "name": "Proton Pass" },
                 { "id": "keepassxc", "name": "KeePassXC" }
             ]
         },
@@ -143,48 +145,26 @@
             ]
         },
         {
-            "name": "Desktop OS",
-            "order": 11,
-            "mainstream_apps": [
-                { "id": "windows", "name": "Windows" },
-                { "id": "macos", "name": "macOS" }
-            ],
-            "private_alternatives": [
-                { "id": "ubuntu", "name": "Ubuntu" },
-                { "id": "fedora", "name": "Fedora" },
-                { "id": "debian", "name": "Debian" },
-                { "id": "tails", "name": "Tails" }
-            ]
-        },
-        {
-            "name": "Phone OS",
-            "order": 12,
-            "mainstream_apps": [
-                { "id": "android", "name": "Android" },
-                { "id": "ios", "name": "iOS" }
-            ],
-            "private_alternatives": [
-                { "id": "grapheneos", "name": "GrapheneOS" },
-                { "id": "lineageos", "name": "LineageOS" }
-            ]
-        },
-        {
             "name": "App Store",
-            "order": 13,
+            "order": 11,
             "mainstream_apps": [
                 { "id": "play_store", "name": "Play Store" },
                 { "id": "app_store", "name": "App Store" }
             ],
-            "private_alternatives": [{ "id": "f_droid", "name": "F-Droid" }]
+            "private_alternatives": [
+                { "id": "f_droid", "name": "F-Droid" },
+                { "id": "aurora_store", "name": "Aurora Store" },
+                { "id": "obtainium", "name": "Obtainium" }
+            ]
         },
         {
             "name": "VPN",
-            "order": 14,
+            "order": 12,
             "mainstream_apps": [
+                { "id": "no_vpn", "name": "No VPN" },
                 { "id": "nordvpn", "name": "NordVPN" },
                 { "id": "expressvpn", "name": "ExpressVPN" },
-                { "id": "surfshark", "name": "Surfshark" },
-                { "id": "no_vpn", "name": "No VPN" }
+                { "id": "surfshark", "name": "Surfshark" }
             ],
             "private_alternatives": [
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
