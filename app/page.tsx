@@ -18,6 +18,7 @@ export default function Home() {
                     </p>
                     <Link
                         href="/create"
+                        id="create-pack"
                         className="mt-12 items-center justify-center rounded-2xl bg-white px-10 py-4 text-base font-semibold text-black transition-all duration-150 hover:bg-white/80"
                     >
                         CREATE YOUR PACK
@@ -52,6 +53,20 @@ export default function Home() {
                         priority
                     />
                 </div>
+            </div>
+            <div className="mt-24 flex flex-row gap-5 text-sm md:text-base">
+                <Link
+                    href="/privacy"
+                    className="text-[#717171] underline underline-offset-4 hover:text-[#8e8e8e]"
+                >
+                    Privacy
+                </Link>
+                <Link
+                    href="/terms"
+                    className="text-[#717171] underline underline-offset-4 hover:text-[#8e8e8e]"
+                >
+                    Terms
+                </Link>
             </div>
         </div>
     );

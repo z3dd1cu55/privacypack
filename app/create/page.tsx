@@ -190,6 +190,7 @@ export default function App() {
                         </a>
                         <button
                             onClick={() => processSelection(handleDownload)}
+                            id="download-navbar"
                             className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-4 text-black transition-all duration-150 hover:bg-white/80"
                         >
                             <Download color="black" size={18} />
@@ -452,6 +453,7 @@ export default function App() {
 
                 <button
                     onClick={() => processSelection(handleShare)}
+                    id="share-mobile"
                     className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
                 >
                     <Share2 color="black" size={16} />
@@ -459,6 +461,7 @@ export default function App() {
                 </button>
                 <button
                     onClick={() => processSelection(handleDownload)}
+                    id="download-mobile"
                     className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
                 >
                     <Download color="white" size={16} />
