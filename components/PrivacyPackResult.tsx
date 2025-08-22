@@ -57,9 +57,9 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                     style={{
                         position: "absolute",
                         right: "0",
-                        top: "0",
-                        width: "48px",
-                        height: "48px",
+                        top: "11px",
+                        width: "50px",
+                        height: "50px",
                         backgroundColor: "#a3e635",
                     }}
                 ></div>

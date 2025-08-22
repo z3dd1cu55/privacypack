@@ -40,7 +40,7 @@ npm run dev
 
 The application will be available at `http://localhost:3000`
 
-### Testing API and database (to store count of apps in privacy packs)
+### Testing API and database (for count of apps in packs and hashed IPs for rate limiting)
 
 1. Setup the database
 

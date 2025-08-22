@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
       VALUES (?, 1, CURRENT_TIMESTAMP)
       ON CONFLICT(ip_hash) DO UPDATE SET 
         count = CASE 
-          WHEN last_request_at < datetime('now', '-1 hours') THEN 1
+          WHEN last_request_at < datetime('now', '-24 hours') THEN 1
           ELSE count + 1
         END,
         last_request_at = CURRENT_TIMESTAMP,
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: "Rate limit exceeded. Maximum 5 requests allowed per hour.",
+          error: "Rate limit exceeded. Maximum 5 requests allowed per day.",
         },
         { status: 429 }
       );

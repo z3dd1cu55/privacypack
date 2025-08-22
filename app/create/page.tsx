@@ -190,7 +190,7 @@ export default function App() {
                         </a>
                         <button
                             onClick={() => processSelection(handleDownload)}
-                            className="flex h-10 cursor-pointer items-center justify-center gap-2 bg-white px-4 text-black transition-all duration-150 hover:bg-white/80"
+                            className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-4 text-black transition-all duration-150 hover:bg-white/80"
                         >
                             <Download color="black" size={18} />
                             <span>DOWNLOAD</span>
@@ -231,7 +231,7 @@ export default function App() {
                                     </span>
                                 </div>
 
-                                <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between bg-[#181818] p-3 sm:w-auto sm:justify-normal sm:gap-3">
+                                <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between rounded-3xl bg-[#181818] p-3 sm:w-auto sm:justify-normal sm:gap-3 md:rounded-4xl">
                                     <DropdownMenu
                                         open={openKey === mainKey}
                                         onOpenChange={(next) =>
@@ -246,7 +246,7 @@ export default function App() {
                                                 {...getTouchTriggerHandlers(
                                                     mainKey,
                                                 )}
-                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
+                                                className={`flex h-full flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl ${
                                                     item.chosen
                                                         ? "cursor-pointer touch-pan-y"
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
@@ -261,7 +261,7 @@ export default function App() {
                                                         width={0}
                                                         height={0}
                                                         sizes="100vw"
-                                                        className="h-auto w-full rounded-2xl"
+                                                        className="h-auto w-full rounded-xl md:rounded-2xl"
                                                     />
                                                 </div>
                                                 <div className="mt-5 max-w-18 text-center text-xs leading-tight font-medium tracking-tight lg:max-w-24 lg:text-base xl:max-w-28 2xl:max-w-40">
@@ -275,6 +275,7 @@ export default function App() {
                                             <DropdownMenuContent
                                                 align="start"
                                                 side="bottom"
+                                                className="rounded-2xl"
                                             >
                                                 {category?.mainstream_apps.map(
                                                     (mainstream_app) => (
@@ -289,7 +290,7 @@ export default function App() {
                                                                     "mainstream",
                                                                 )
                                                             }
-                                                            className="flex cursor-pointer flex-row items-center gap-2"
+                                                            className="flex cursor-pointer flex-row items-center gap-2 rounded-lg"
                                                         >
                                                             <div className="h-5 w-5">
                                                                 <Image
@@ -337,14 +338,14 @@ export default function App() {
                                                 {...getTouchTriggerHandlers(
                                                     altKey,
                                                 )}
-                                                className={`flex h-full flex-col items-center bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black ${
+                                                className={`flex h-full flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl ${
                                                     item.chosen
                                                         ? "cursor-pointer touch-pan-y"
                                                         : "pointer-events-none cursor-default opacity-30 grayscale"
                                                 }`}
                                             >
                                                 <div
-                                                    className={`h-18 w-18 rounded-2xl lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${
+                                                    className={`h-18 w-18 rounded-xl md:rounded-2xl lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${
                                                         !item.private_alternative_id &&
                                                         "bg-[#383838]"
                                                     }`}
@@ -358,7 +359,7 @@ export default function App() {
                                                             width={0}
                                                             height={0}
                                                             sizes="100vw"
-                                                            className="h-auto w-full rounded-2xl"
+                                                            className="h-auto w-full rounded-xl md:rounded-2xl"
                                                         />
                                                     )}
                                                 </div>
@@ -374,6 +375,7 @@ export default function App() {
                                             <DropdownMenuContent
                                                 align="end"
                                                 side="bottom"
+                                                className="rounded-2xl"
                                             >
                                                 {category?.private_alternatives
                                                     .map((alt) => ({
@@ -401,7 +403,7 @@ export default function App() {
                                                                         "private",
                                                                     )
                                                                 }
-                                                                className="cursor-pointer"
+                                                                className="cursor-pointer rounded-lg"
                                                             >
                                                                 <div className="mr-5 flex flex-row items-center gap-2">
                                                                     <div className="h-5 w-5">
@@ -450,14 +452,14 @@ export default function App() {
 
                 <button
                     onClick={() => processSelection(handleShare)}
-                    className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
+                    className="mt-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-white text-black transition-all duration-150 hover:bg-white/80 sm:hidden"
                 >
                     <Share2 color="black" size={16} />
                     <span className="text-lg">SHARE</span>
                 </button>
                 <button
                     onClick={() => processSelection(handleDownload)}
-                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
+                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 hover:bg-[#444444] sm:hidden"
                 >
                     <Download color="white" size={16} />
                     <span className="text-lg">DOWNLOAD</span>

@@ -1,2 +1,4 @@
 # Generate using: openssl rand -hex 32
 IP_SALT=your-salt
+NEXT_PUBLIC_POSTHOG_KEY=posthog_key
+NEXT_PUBLIC_POSTHOG_HOST=posthog_host
