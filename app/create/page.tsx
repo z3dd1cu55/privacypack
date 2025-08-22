@@ -140,17 +140,7 @@ export default function App() {
                     : item,
             ),
         );
-
-        if (type === "private") {
-            setShowRemove((prev) => ({ ...prev, [categoryName]: false }));
-
-            setTimeout(() => {
-                setShowRemove((prev) => ({ ...prev, [categoryName]: true }));
-            }, 500);
-        }
     };
-
-    const [showRemove, setShowRemove] = useState<Record<string, boolean>>({});
 
     return (
         <>
@@ -373,37 +363,41 @@ export default function App() {
                                                         </DropdownMenuShortcut>
                                                     </DropdownMenuItem>
                                                 ))}
-                                            {item.private_alternative_id &&
-                                                showRemove[item.category] && (
-                                                    <DropdownMenuItem
-                                                        onClick={() => {
-                                                            setTimeout(() => {
-                                                                handleSelectApp(
-                                                                    item.category,
-                                                                    {
-                                                                        id: "",
-                                                                        name: "",
-                                                                    },
-                                                                    "private",
-                                                                );
-                                                                setShowRemove(
-                                                                    (prev) => ({
-                                                                        ...prev,
-                                                                        [item.category]: false,
-                                                                    }),
-                                                                );
-                                                            }, 500);
-                                                        }}
-                                                        className="cursor-pointer rounded-lg"
-                                                    >
-                                                        <div className="mr-5 flex flex-row items-center gap-2">
-                                                            <div className="h-5 w-5" />
-                                                            <span className="text-xs text-red-500 sm:text-sm">
+                                            <DropdownMenuItem
+                                                onClick={() => {
+                                                    handleSelectApp(
+                                                        item.category,
+                                                        {
+                                                            id: "",
+                                                            name: "",
+                                                        },
+                                                        "private",
+                                                    );
+                                                }}
+                                                className="cursor-pointer rounded-lg"
+                                            >
+                                                <div className="mr-5 flex flex-row items-center gap-2">
+                                                    {item.private_alternative_id ? (
+                                                        <>
+                                                            <div className="h-5 w-5 pl-1 text-red-500">
+                                                                —
+                                                            </div>
+                                                            <span className="text-xs text-red-500 transition duration-500 sm:text-sm">
                                                                 Remove
                                                             </span>
-                                                        </div>
-                                                    </DropdownMenuItem>
-                                                )}
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <div className="h-5 w-5 pl-1 text-[#aeaeae]">
+                                                                —
+                                                            </div>
+                                                            <span className="text-xs text-[#aeaeae] transition duration-500 sm:text-sm">
+                                                                Remove
+                                                            </span>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>
