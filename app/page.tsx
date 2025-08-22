@@ -54,7 +54,7 @@ export default function Home() {
                     />
                 </div>
             </div>
-            <div className="mt-24 flex flex-row gap-5 text-sm md:text-base">
+            <div className="mt-24 flex flex-row gap-5 text-sm">
                 <Link
                     href="/privacy"
                     className="text-[#717171] underline underline-offset-4 hover:text-[#8e8e8e]"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Privacy = () => {
     return (
         <div className="flex w-screen flex-col items-center">
@@ -5,12 +7,13 @@ const Privacy = () => {
                 <h1 className="mb-8 text-3xl text-white">PRIVACY POLICY</h1>
                 <p>Last Updated: August 22, 2025</p>
                 <p>
-                    We respect the privacy of our Users ("User," "your," or
-                    "you"). This Privacy Policy ("Policy") explains how we
-                    handle your information when you use our website,{" "}
-                    <strong>privacypack.org</strong> (the "Site"). Please read
-                    this Policy carefully to understand our practices regarding
-                    your information and how we treat it.
+                    We respect the privacy of our Users (&quot;User&quot;,
+                    &quot;your&quot;, &quot;you&quot;). This Privacy Policy
+                    (&quot;Policy&quot;) explains how we handle your information
+                    when you use our website, <strong>privacypack.org</strong>{" "}
+                    (the &quot;Site&quot;). Please read this Policy carefully to
+                    understand our practices regarding your information and how
+                    we treat it.
                 </p>
                 <p>
                     By accessing or using the Site, you agree to the terms of
@@ -34,8 +37,9 @@ const Privacy = () => {
                 <ul className="list-disc pl-8">
                     <li>
                         <strong>Privacy Packs:</strong> Users may create and
-                        share cards displaying “before” and “after” app logos.
-                        These are publicly viewable if shared.
+                        share cards displaying &quot;before&quot; and
+                        &quot;after&quot; app logos. These are publicly viewable
+                        if shared.
                     </li>
                     <li>
                         <strong>IP Addresses:</strong> We temporarily store
@@ -50,9 +54,9 @@ const Privacy = () => {
                     <li>
                         <strong>App Counts:</strong> We track the number of
                         times each app appears in user-created packs to display
-                        aggregate counts (e.g., "App X – in 56 packs"). This
-                        data is anonymized and does not identify individual
-                        users.
+                        aggregate counts (e.g., &quot;App X – in 56
+                        packs&quot;). This data is anonymized and does not
+                        identify individual users.
                     </li>
                 </ul>
 
@@ -71,7 +75,7 @@ const Privacy = () => {
                             href="https://posthog.com/privacy"
                             className="underline underline-offset-2"
                         >
-                            PostHog's Privacy Policy
+                            PostHog&apos;s Privacy Policy
                         </a>{" "}
                         for more details.
                     </li>
@@ -142,7 +146,7 @@ const Privacy = () => {
                     <li>
                         Analytics data collected by PostHog is retained
                         according to their retention policy. Users should review
-                        PostHog’s Privacy Policy for details.
+                        PostHog&apos;s Privacy Policy for details.
                     </li>
                     <li>
                         Aggregate app count data is retained to provide site
@@ -154,7 +158,9 @@ const Privacy = () => {
                     </li>
                 </ul>
 
-                <h2 className="text-xl text-white">7. Children's Privacy</h2>
+                <h2 className="text-xl text-white">
+                    7. Children&apos;s Privacy
+                </h2>
                 <p>
                     The Site is not intended for children under the age of 13,
                     and we do not knowingly collect personal data from children
@@ -199,9 +205,10 @@ const Privacy = () => {
                     Mailing address: EnteIO Technologies Private Limited, 72/12,
                     Whitefield, Bengaluru, India.
                 </p>
-                <a href="/" className="mt-8 underline underline-offset-2">
+
+                <Link href="/" className="mt-8 underline underline-offset-2">
                     Go back to homepage
-                </a>
+                </Link>
             </div>
         </div>
     );

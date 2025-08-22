@@ -9,12 +9,13 @@ const Terms = () => {
                 </h1>
                 <p>Last Updated: August 22, 2025</p>
                 <p>
-                    These Terms and Conditions ("Agreement" or "Terms") are a
-                    legally binding agreement between EnteIO Technologies
-                    Private Limited ("we," "our") and any person ("User," "you,"
-                    "your") who accesses or uses our website{" "}
-                    <strong>privacypack.org</strong> (the "Site"). This
-                    Agreement, along with our{" "}
+                    These Terms and Conditions (&quot;Agreement&quot; or
+                    &quot;Terms&quot;) are a legally binding agreement between
+                    EnteIO Technologies Private Limited (&quot;we&quot;,
+                    &quot;our&quot;) and any person (&quot;User&quot;,
+                    &quot;you&quot;, &quot;your&quot;) who accesses or uses our
+                    website <strong>privacypack.org</strong> (the
+                    &quot;Site&quot;). This Agreement, along with our{" "}
                     <Link
                         href="/privacy"
                         className="underline underline-offset-2"
@@ -152,9 +153,10 @@ const Terms = () => {
                     Mailing address: EnteIO Technologies Private Limited, 72/12,
                     Whitefield, Bengaluru, India.
                 </p>
-                <a href="/" className="mt-8 underline underline-offset-2">
+
+                <Link href="/" className="mt-8 underline underline-offset-2">
                     Go back to homepage
-                </a>
+                </Link>
             </div>
         </div>
     );
