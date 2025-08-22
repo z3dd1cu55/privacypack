@@ -58,7 +58,7 @@ npm run preview
 
 The application will be available at `http://localhost:8787`.
 
-## Adding new apps
+## Add a new app
 
 New apps can be added to the catalog by modifying `/data/apps.json` and opening a PR. Each app belongs to a category and is either a mainstream app or a privacy-focused alternative.
 

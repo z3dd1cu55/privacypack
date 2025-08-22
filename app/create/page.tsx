@@ -20,7 +20,6 @@ import {
 import data from "../../data/apps.json";
 import PrivacyPackResult from "@/components/PrivacyPackResult";
 import { handleDownload, handleShare } from "@/lib/utils";
-import { toast } from "sonner";
 import Image from "next/image";
 
 interface AppCount {
@@ -38,7 +37,6 @@ export default function App() {
             mainstream_app_name: category.mainstream_apps[0].name,
             private_alternative_id: "",
             private_alternative_name: "",
-            chosen: true,
         }));
         return initialPack;
     });
@@ -111,25 +109,9 @@ export default function App() {
     };
 
     const processSelection = async (action: () => void) => {
-        const chosenItems = pack.filter((item) => item.chosen);
-        const unselectedAlts = chosenItems.filter(
-            (item) => !item.private_alternative_id,
-        );
-        const selectedIds = chosenItems
+        const selectedIds = pack
             .filter((item) => item.private_alternative_id)
             .map((item) => item.private_alternative_id);
-
-        if (unselectedAlts.length > 0) {
-            const missingCategories = unselectedAlts
-                .map((item) => item.category)
-                .join(", ");
-
-            toast.error(
-                `Please pick alternatives for: ${missingCategories}, or unselect the categories.`,
-                { duration: 7000 },
-            );
-            return;
-        }
 
         action();
 
@@ -160,16 +142,6 @@ export default function App() {
         );
     };
 
-    const toggleChosen = (categoryName: string) => {
-        setPack((prev) =>
-            prev.map((item) =>
-                item.category === categoryName
-                    ? { ...item, chosen: !item.chosen }
-                    : item,
-            ),
-        );
-    };
-
     return (
         <>
             <div className="flex w-full flex-col p-4">
@@ -182,7 +154,7 @@ export default function App() {
                     </Link>
                     <div className="flex flex-row items-center gap-8">
                         <a
-                            href="https://github.com/ente-io/privacypack?tab=readme-ov-file#adding-new-apps"
+                            href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-new-app"
                             target="_blank"
                             className="hidden text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:block"
                         >
@@ -191,7 +163,7 @@ export default function App() {
                         <button
                             onClick={() => processSelection(handleDownload)}
                             id="download-navbar"
-                            className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-4 text-black transition-all duration-150 hover:bg-white/80"
+                            className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-5 text-black transition-all duration-150 hover:bg-white/80"
                         >
                             <Download color="black" size={18} />
                             <span>DOWNLOAD</span>
@@ -213,45 +185,22 @@ export default function App() {
                                 key={item.category}
                                 className="flex flex-col gap-2"
                             >
-                                <div className="flex flex-row items-center justify-between">
-                                    <button
-                                        onClick={() =>
-                                            toggleChosen(item.category)
-                                        }
-                                        className="flex cursor-pointer items-center justify-center"
-                                    >
-                                        {item.chosen ? (
-                                            <SquareCheckBig className="h-5 w-5 text-[#9f9f9f]" />
-                                        ) : (
-                                            <Square className="h-5 w-5 text-[#9f9f9f]" />
-                                        )}
-                                    </button>
-                                    <div className="mx-5 h-[1px] w-full bg-[#464646]" />
-                                    <span className="whitespace-nowrap text-[#9f9f9f]">
-                                        {item.category}
-                                    </span>
+                                <div className="mb-1 text-[#aeaeae]">
+                                    {item.category}
                                 </div>
-
-                                <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between rounded-3xl bg-[#181818] p-3 sm:w-auto sm:justify-normal sm:gap-3 md:rounded-4xl">
+                                <div className="xs:p-8 flex h-full w-full flex-row items-center justify-between rounded-3xl bg-[#fff]/2 p-3 sm:w-auto sm:justify-normal sm:gap-3 md:rounded-4xl">
                                     <DropdownMenu
                                         open={openKey === mainKey}
                                         onOpenChange={(next) =>
                                             setOpenKey(next ? mainKey : null)
                                         }
                                     >
-                                        <DropdownMenuTrigger
-                                            asChild
-                                            disabled={!item.chosen}
-                                        >
+                                        <DropdownMenuTrigger asChild>
                                             <div
                                                 {...getTouchTriggerHandlers(
                                                     mainKey,
                                                 )}
-                                                className={`flex h-full flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl ${
-                                                    item.chosen
-                                                        ? "cursor-pointer touch-pan-y"
-                                                        : "pointer-events-none cursor-default opacity-30 grayscale"
-                                                }`}
+                                                className="flex h-full cursor-pointer touch-pan-y flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl"
                                             >
                                                 <div className="h-18 w-18 lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40">
                                                     <Image
@@ -272,58 +221,50 @@ export default function App() {
                                             </div>
                                         </DropdownMenuTrigger>
 
-                                        {item.chosen && (
-                                            <DropdownMenuContent
-                                                align="start"
-                                                side="bottom"
-                                                className="rounded-2xl"
-                                            >
-                                                {category?.mainstream_apps.map(
-                                                    (mainstream_app) => (
-                                                        <DropdownMenuItem
-                                                            key={
-                                                                mainstream_app.name
-                                                            }
-                                                            onClick={() =>
-                                                                handleSelectApp(
-                                                                    item.category,
-                                                                    mainstream_app,
-                                                                    "mainstream",
-                                                                )
-                                                            }
-                                                            className="flex cursor-pointer flex-row items-center gap-2 rounded-lg"
-                                                        >
-                                                            <div className="h-5 w-5">
-                                                                <Image
-                                                                    src={`/app-logos/${mainstream_app.id}.jpg`}
-                                                                    alt={
-                                                                        mainstream_app.name
-                                                                    }
-                                                                    width={0}
-                                                                    height={0}
-                                                                    sizes="100vw"
-                                                                    className="h-auto w-full"
-                                                                />
-                                                            </div>
-                                                            <span className="text-xs sm:text-sm">
-                                                                {
+                                        <DropdownMenuContent
+                                            align="start"
+                                            side="bottom"
+                                            className="rounded-2xl"
+                                        >
+                                            {category?.mainstream_apps.map(
+                                                (mainstream_app) => (
+                                                    <DropdownMenuItem
+                                                        key={
+                                                            mainstream_app.name
+                                                        }
+                                                        onClick={() =>
+                                                            handleSelectApp(
+                                                                item.category,
+                                                                mainstream_app,
+                                                                "mainstream",
+                                                            )
+                                                        }
+                                                        className="flex cursor-pointer flex-row items-center gap-2 rounded-lg"
+                                                    >
+                                                        <div className="h-5 w-5">
+                                                            <Image
+                                                                src={`/app-logos/${mainstream_app.id}.jpg`}
+                                                                alt={
                                                                     mainstream_app.name
                                                                 }
-                                                            </span>
-                                                        </DropdownMenuItem>
-                                                    ),
-                                                )}
-                                            </DropdownMenuContent>
-                                        )}
+                                                                width={0}
+                                                                height={0}
+                                                                sizes="100vw"
+                                                                className="h-auto w-full"
+                                                            />
+                                                        </div>
+                                                        <span className="text-xs sm:text-sm">
+                                                            {
+                                                                mainstream_app.name
+                                                            }
+                                                        </span>
+                                                    </DropdownMenuItem>
+                                                ),
+                                            )}
+                                        </DropdownMenuContent>
                                     </DropdownMenu>
 
-                                    <ArrowRight
-                                        className={`transition ${
-                                            item.chosen
-                                                ? "text-[#aeaeae]"
-                                                : "text-[#aeaeae] opacity-20"
-                                        }`}
-                                    />
+                                    <ArrowRight className="text-[#aeaeae] transition" />
 
                                     <DropdownMenu
                                         open={openKey === altKey}
@@ -331,19 +272,12 @@ export default function App() {
                                             setOpenKey(next ? altKey : null)
                                         }
                                     >
-                                        <DropdownMenuTrigger
-                                            asChild
-                                            disabled={!item.chosen}
-                                        >
+                                        <DropdownMenuTrigger asChild>
                                             <div
                                                 {...getTouchTriggerHandlers(
                                                     altKey,
                                                 )}
-                                                className={`flex h-full flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl ${
-                                                    item.chosen
-                                                        ? "cursor-pointer touch-pan-y"
-                                                        : "pointer-events-none cursor-default opacity-30 grayscale"
-                                                }`}
+                                                className="flex h-full cursor-pointer touch-pan-y flex-col items-center rounded-2xl bg-[#2B2B2B] p-4 text-[#aeaeae] transition outline-none hover:bg-[#ededed] hover:text-black focus:bg-[#ededed] focus:text-black data-[state=open]:bg-[#ededed] data-[state=open]:text-black md:rounded-3xl"
                                             >
                                                 <div
                                                     className={`h-18 w-18 rounded-xl md:rounded-2xl lg:h-24 lg:w-24 xl:h-28 xl:w-28 2xl:h-40 2xl:w-40 ${
@@ -371,79 +305,87 @@ export default function App() {
                                                 <ChevronDown className="mt-1 h-4 w-4" />
                                             </div>
                                         </DropdownMenuTrigger>
-
-                                        {item.chosen && (
-                                            <DropdownMenuContent
-                                                align="end"
-                                                side="bottom"
-                                                className="rounded-2xl"
-                                            >
-                                                {category?.private_alternatives
-                                                    .map((alt) => ({
-                                                        ...alt,
-                                                        count: getAppCount(
-                                                            alt.id,
-                                                        ),
-                                                    }))
-                                                    .sort(
-                                                        (a, b) =>
-                                                            b.count - a.count,
-                                                    )
-                                                    .map(
-                                                        (
-                                                            private_alternative,
-                                                        ) => (
-                                                            <DropdownMenuItem
-                                                                key={
-                                                                    private_alternative.id
+                                        <DropdownMenuContent
+                                            align="end"
+                                            side="bottom"
+                                            className="rounded-2xl"
+                                        >
+                                            {category?.private_alternatives
+                                                .map((alt) => ({
+                                                    ...alt,
+                                                    count: getAppCount(alt.id),
+                                                }))
+                                                .sort(
+                                                    (a, b) => b.count - a.count,
+                                                )
+                                                .map((private_alternative) => (
+                                                    <DropdownMenuItem
+                                                        key={
+                                                            private_alternative.id
+                                                        }
+                                                        onClick={() =>
+                                                            handleSelectApp(
+                                                                item.category,
+                                                                private_alternative,
+                                                                "private",
+                                                            )
+                                                        }
+                                                        className="cursor-pointer rounded-lg"
+                                                    >
+                                                        <div className="mr-5 flex flex-row items-center gap-2">
+                                                            <div className="h-5 w-5">
+                                                                <Image
+                                                                    src={`/app-logos/${private_alternative.id}.jpg`}
+                                                                    alt={
+                                                                        private_alternative.name
+                                                                    }
+                                                                    width={0}
+                                                                    height={0}
+                                                                    sizes="100vw"
+                                                                    className="h-auto w-full"
+                                                                />
+                                                            </div>
+                                                            <span className="text-xs sm:text-sm">
+                                                                {
+                                                                    private_alternative.name
                                                                 }
-                                                                onClick={() =>
-                                                                    handleSelectApp(
-                                                                        item.category,
-                                                                        private_alternative,
-                                                                        "private",
-                                                                    )
-                                                                }
-                                                                className="cursor-pointer rounded-lg"
-                                                            >
-                                                                <div className="mr-5 flex flex-row items-center gap-2">
-                                                                    <div className="h-5 w-5">
-                                                                        <Image
-                                                                            src={`/app-logos/${private_alternative.id}.jpg`}
-                                                                            alt={
-                                                                                private_alternative.name
-                                                                            }
-                                                                            width={
-                                                                                0
-                                                                            }
-                                                                            height={
-                                                                                0
-                                                                            }
-                                                                            sizes="100vw"
-                                                                            className="h-auto w-full"
-                                                                        />
-                                                                    </div>
-                                                                    <span className="text-xs sm:text-sm">
-                                                                        {
-                                                                            private_alternative.name
-                                                                        }
-                                                                    </span>
-                                                                </div>
-                                                                <DropdownMenuShortcut className="tracking-tighter">
-                                                                    {loadingCounts
-                                                                        ? "[Loading...]"
-                                                                        : `[In ${private_alternative.count} pack${
-                                                                              private_alternative.count ===
-                                                                              1
-                                                                                  ? ""
-                                                                                  : "s"
-                                                                          }]`}
-                                                                </DropdownMenuShortcut>
-                                                            </DropdownMenuItem>
-                                                        ),
-                                                    )}
-                                            </DropdownMenuContent>
-                                        )}
+                                                            </span>
+                                                        </div>
+                                                        <DropdownMenuShortcut className="tracking-tighter">
+                                                            {loadingCounts
+                                                                ? "[Loading...]"
+                                                                : `[In ${private_alternative.count} pack${
+                                                                      private_alternative.count ===
+                                                                      1
+                                                                          ? ""
+                                                                          : "s"
+                                                                  }]`}
+                                                        </DropdownMenuShortcut>
+                                                    </DropdownMenuItem>
+                                                ))}
+                                            {item.private_alternative_id && (
+                                                <DropdownMenuItem
+                                                    onClick={() =>
+                                                        handleSelectApp(
+                                                            item.category,
+                                                            {
+                                                                id: "",
+                                                                name: "",
+                                                            },
+                                                            "private",
+                                                        )
+                                                    }
+                                                    className="cursor-pointer rounded-lg text-red-500"
+                                                >
+                                                    <div className="mr-5 flex flex-row items-center gap-2">
+                                                        <div className="h-5 w-5" />
+                                                        <span className="text-xs sm:text-sm">
+                                                            Remove
+                                                        </span>
+                                                    </div>
+                                                </DropdownMenuItem>
+                                            )}
+                                        </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>
                             </div>
@@ -468,7 +410,7 @@ export default function App() {
                     <span className="text-lg">DOWNLOAD</span>
                 </button>
                 <a
-                    href="https://github.com/ente-io/privacypack?tab=readme-ov-file#adding-new-apps"
+                    href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-new-app"
                     target="_blank"
                     className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:hidden"
                 >
@@ -476,7 +418,9 @@ export default function App() {
                 </a>
             </div>
 
-            <PrivacyPackResult pack={pack.filter((item) => item.chosen)} />
+            <PrivacyPackResult
+                pack={pack.filter((item) => item.private_alternative_id)}
+            />
         </>
     );
 }

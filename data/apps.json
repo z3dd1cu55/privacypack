@@ -16,23 +16,35 @@
             ]
         },
         {
-            "name": "Messaging",
+            "name": "Photos",
             "order": 2,
             "mainstream_apps": [
-                { "id": "whatsapp", "name": "WhatsApp" },
-                { "id": "messenger", "name": "Messenger" },
-                { "id": "telegram", "name": "Telegram" },
-                { "id": "imessage", "name": "iMessage" }
+                { "id": "google_photos", "name": "Google Photos" },
+                { "id": "apple_photos", "name": "Apple Photos" },
+                { "id": "amazon_photos", "name": "Amazon Photos" },
+                { "id": "dropbox", "name": "Dropbox" }
             ],
             "private_alternatives": [
-                { "id": "signal", "name": "Signal" },
-                { "id": "simplex_chat", "name": "SimpleX Chat" },
-                { "id": "session", "name": "Session" }
+                { "id": "ente_photos", "name": "Ente Photos" },
+                { "id": "immich", "name": "Immich" }
+            ]
+        },
+        {
+            "name": "Search",
+            "order": 3,
+            "mainstream_apps": [
+                { "id": "google_search", "name": "Google Search" },
+                { "id": "bing", "name": "Bing" }
+            ],
+            "private_alternatives": [
+                { "id": "kagi", "name": "Kagi" },
+                { "id": "brave_search", "name": "Brave Search" },
+                { "id": "duckduckgo", "name": "DuckDuckGo" }
             ]
         },
         {
             "name": "Browser",
-            "order": 3,
+            "order": 4,
             "mainstream_apps": [
                 { "id": "chrome", "name": "Chrome" },
                 { "id": "safari", "name": "Safari" },
@@ -47,30 +59,18 @@
             ]
         },
         {
-            "name": "Search",
-            "order": 4,
-            "mainstream_apps": [
-                { "id": "google_search", "name": "Google Search" },
-                { "id": "bing", "name": "Bing" }
-            ],
-            "private_alternatives": [
-                { "id": "kagi", "name": "Kagi" },
-                { "id": "brave_search", "name": "Brave Search" },
-                { "id": "duckduckgo", "name": "DuckDuckGo" }
-            ]
-        },
-        {
-            "name": "Photos",
+            "name": "Messaging",
             "order": 5,
             "mainstream_apps": [
-                { "id": "google_photos", "name": "Google Photos" },
-                { "id": "apple_photos", "name": "Apple Photos" },
-                { "id": "amazon_photos", "name": "Amazon Photos" },
-                { "id": "dropbox", "name": "Dropbox" }
+                { "id": "whatsapp", "name": "WhatsApp" },
+                { "id": "messenger", "name": "Messenger" },
+                { "id": "telegram", "name": "Telegram" },
+                { "id": "imessage", "name": "iMessage" }
             ],
             "private_alternatives": [
-                { "id": "ente_photos", "name": "Ente Photos" },
-                { "id": "immich", "name": "Immich" }
+                { "id": "signal", "name": "Signal" },
+                { "id": "simplex_chat", "name": "SimpleX Chat" },
+                { "id": "session", "name": "Session" }
             ]
         },
         {

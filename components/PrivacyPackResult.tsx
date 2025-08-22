@@ -10,7 +10,6 @@ interface PrivacyPackResultProps {
         mainstream_app_id: string;
         private_alternative_name: string;
         private_alternative_id: string;
-        chosen: boolean;
     }>;
 }
 
@@ -18,7 +17,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
     return (
         <div
             style={{
-                // display: "none",
+                display: "none",
                 width: "1500px",
                 height: "1500px",
                 backgroundColor: "#121212",
@@ -57,9 +56,9 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                     style={{
                         position: "absolute",
                         right: "0",
-                        top: "0px",
-                        width: "95px",
-                        height: "60px",
+                        top: "-16px",
+                        width: "130px",
+                        height: "92px",
                     }}
                 >
                     <Image

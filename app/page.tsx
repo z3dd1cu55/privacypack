@@ -51,16 +51,17 @@ export default function Home() {
                     </a>
                 </div>
             </div>
-            <div className="flex w-[64%] flex-col items-center gap-3 md:w-[640px]">
+            <div className="flex w-[80%] flex-col items-center gap-3 md:w-[640px] xl:w-[740px]">
                 <div className="w-full">
                     <Image
-                        src="/sample-privacy-pack.png"
-                        alt="Sample Privacy Pack"
+                        src="/hero.png"
+                        alt="Hero illustration"
                         width={0}
                         height={0}
                         sizes="100vw"
-                        className="h-auto w-full border border-[#404040]"
+                        className="h-auto w-full"
                         priority
+                        quality={100}
                     />
                 </div>
             </div>
