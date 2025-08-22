@@ -6,8 +6,6 @@ declare namespace Cloudflare {
 		NEXTJS_ENV: string;
 		ASSETS: Fetcher;
 		IP_SALT: string;
-        NEXT_PUBLIC_POSTHOG_KEY: string;
-        NEXT_PUBLIC_POSTHOG_HOST: string;
 	}
 }
 interface CloudflareEnv extends Cloudflare.Env {}

@@ -46,12 +46,6 @@ const Privacy = () => {
                         hashed IP addresses for rate-limiting purposes only.
                     </li>
                     <li>
-                        <strong>Analytics Data:</strong> We use PostHog to
-                        collect anonymized usage analytics to improve the Site.
-                        This data does not include personally identifiable
-                        information.
-                    </li>
-                    <li>
                         <strong>App Counts:</strong> We track the number of
                         times each app appears in user-created packs to display
                         aggregate counts (e.g., &quot;App X – in 56
@@ -66,18 +60,6 @@ const Privacy = () => {
                         Hashed IPs are used solely to prevent abuse and
                         excessive usage. We do not store the original IP
                         addresses.
-                    </li>
-                    <li>
-                        Analytics data collected by PostHog is used to improve
-                        user experience, monitor traffic trends, and optimize
-                        Site performance. Please review{" "}
-                        <a
-                            href="https://posthog.com/privacy"
-                            className="underline underline-offset-2"
-                        >
-                            PostHog&apos;s Privacy Policy
-                        </a>{" "}
-                        for more details.
                     </li>
                     <li>
                         User-generated cards are visible to others only if
@@ -95,8 +77,7 @@ const Privacy = () => {
                 <ul className="list-disc pl-8">
                     <li>
                         We do not sell, trade, or otherwise share personal
-                        information with third parties, except as described for
-                        analytics purposes via PostHog.
+                        information with third parties.
                     </li>
                     <li>
                         All data transmissions are encrypted using TLS to ensure
@@ -131,10 +112,6 @@ const Privacy = () => {
                         Hashed IPs are stored securely and are never associated
                         with user identity beyond rate-limiting.
                     </li>
-                    <li>
-                        PostHog implements its own security measures for
-                        anonymized analytics data.
-                    </li>
                 </ul>
 
                 <h2 className="text-xl text-white">6. Data Retention</h2>
@@ -142,11 +119,6 @@ const Privacy = () => {
                     <li>
                         Hashed IPs are retained only as long as necessary for
                         rate-limiting purposes.
-                    </li>
-                    <li>
-                        Analytics data collected by PostHog is retained
-                        according to their retention policy. Users should review
-                        PostHog&apos;s Privacy Policy for details.
                     </li>
                     <li>
                         Aggregate app count data is retained to provide site
@@ -172,11 +144,6 @@ const Privacy = () => {
                     <li>
                         We do not place cookies on your device for tracking
                         purposes.
-                    </li>
-                    <li>
-                        Cookies may be placed by third-party analytics providers
-                        like PostHog. These are subject to their privacy
-                        policies.
                     </li>
                 </ul>
 

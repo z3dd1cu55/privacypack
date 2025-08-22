@@ -18,7 +18,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
     return (
         <div
             style={{
-                display: "none",
+                // display: "none",
                 width: "1500px",
                 height: "1500px",
                 backgroundColor: "#121212",
@@ -57,12 +57,21 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                     style={{
                         position: "absolute",
                         right: "0",
-                        top: "11px",
-                        width: "50px",
-                        height: "50px",
-                        backgroundColor: "#a3e635",
+                        top: "0px",
+                        width: "95px",
+                        height: "60px",
                     }}
-                ></div>
+                >
+                    <Image
+                        src="/logo.png"
+                        alt="Privacy Pack logo"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="h-auto w-full"
+                        priority
+                    />
+                </div>
             </div>
 
             <div

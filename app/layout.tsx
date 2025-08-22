@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/sonner";
-import { PostHogProvider } from "./providers";
 import "./globals.css";
 
 const jetBrainsMono = localFont({
@@ -21,10 +20,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${jetBrainsMono.className} antialiased`}>
-                <PostHogProvider>
-                    {children}
-                    <Toaster />
-                </PostHogProvider>
+                {children}
+                <Toaster />
             </body>
         </html>
     );
