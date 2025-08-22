@@ -7,7 +7,7 @@ const Terms = () => {
                 <h1 className="mb-8 text-3xl text-white">
                     TERMS AND CONDITIONS
                 </h1>
-                <p>Last Updated: August 22, 2025</p>
+                <p>Last Updated: August 23, 2025</p>
                 <p>
                     These Terms and Conditions (&quot;Agreement&quot; or
                     &quot;Terms&quot;) are a legally binding agreement between
@@ -38,9 +38,8 @@ const Terms = () => {
                     <strong>privacypack.org</strong> allows users to create and
                     share cards showing the mainstream apps they previously used
                     and the privacy-respecting alternatives they have switched
-                    to. We provide aggregate statistics about app popularity
-                    based on user-submitted packs. The Site is for informational
-                    and educational purposes only.
+                    to. The Site is for informational and educational purposes
+                    only.
                 </p>
 
                 <h2 className="text-xl text-white">
@@ -54,9 +53,7 @@ const Terms = () => {
                     property rights of all third parties.
                 </p>
 
-                <h2 className="text-xl text-white">
-                    3. Privacy Policy and Data Use
-                </h2>
+                <h2 className="text-xl text-white">3. Privacy Policy</h2>
                 <p>
                     Our{" "}
                     <Link
@@ -65,10 +62,8 @@ const Terms = () => {
                     >
                         Privacy Policy
                     </Link>{" "}
-                    explains how we collect, use, and store your information. By
-                    using the Site, you consent to the collection and use of
-                    data as described in the Privacy Policy, including
-                    anonymized app counts and analytics data.
+                    explains how we handle your information. By using the Site,
+                    you agree to the practices described there.
                 </p>
 
                 <h2 className="text-xl text-white">4. Eligibility</h2>
@@ -92,10 +87,10 @@ const Terms = () => {
                     the Site or its services.
                 </p>
                 <p>
-                    <strong>(b) Public Visibility:</strong> Packs and app counts
-                    submitted by users may be publicly viewable. No personally
-                    identifiable information is disclosed unless voluntarily
-                    included in content by the user.
+                    <strong>(b) Public Visibility:</strong> Packs submitted by
+                    users may be publicly viewable. No personally identifiable
+                    information is disclosed unless voluntarily included in
+                    content by the user.
                 </p>
 
                 <h2 className="text-xl text-white">
@@ -104,8 +99,7 @@ const Terms = () => {
                 <p>
                     To the fullest extent permitted by law, we are not liable
                     for any damages, losses, or claims arising from your use of
-                    the Site, including use of logos, app comparisons, or
-                    aggregate app count data.
+                    the Site or use of logos and app comparisons.
                 </p>
 
                 <h2 className="text-xl text-white">7. Indemnification</h2>

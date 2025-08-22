@@ -28,37 +28,13 @@ cd privacypack
 npm install
 ```
 
-3. Set up environment variables
-
-```bash
-cp .dev.vars.example .dev.vars
-```
-
-4. Start the development server
+3. Start the development server
 
 ```bash
 npm run dev
 ```
 
 The application will be available at `http://localhost:3000`
-
-### Testing API and database (for count of apps in packs and hashed IPs for rate limiting)
-
-1. Setup the database
-
-```bash
-npx wrangler d1 create privacypack-db --local
-
-npx wrangler d1 migrations apply privacypack-db --local
-```
-
-2. Start the preview server that simulates how the app will run on Cloudflare
-
-```bash
-npm run preview
-```
-
-The application will be available at `http://localhost:8787`.
 
 ## Add a new app
 

@@ -40,9 +40,6 @@ export default function App() {
         return initialPack;
     });
 
-    const [appCounts, setAppCounts] = useState<AppCount[]>([]);
-    const [loadingCounts, setLoadingCounts] = useState(true);
-
     // track which dropdown is open
     const [openKey, setOpenKey] = useState<string | null>(null);
     const touchKeyRef = useRef<string | null>(null);
@@ -64,60 +61,11 @@ export default function App() {
         },
     });
 
-    useEffect(() => {
-        fetchAppCounts();
-    }, []);
-
-    const fetchAppCounts = async () => {
-        try {
-            const response = await fetch("/api/apps");
-            const data = (await response.json()) as {
-                success: boolean;
-                apps: AppCount[];
-            };
-
-            if (data.success) {
-                setAppCounts(data.apps);
-            }
-        } catch (error) {
-            console.error("Failed to fetch app counts:", error);
-        } finally {
-            setLoadingCounts(false);
-        }
-    };
-
-    const getAppCount = (appId: string): number => {
-        const app = appCounts.find((a) => a.id === appId);
-        return app?.count || 0;
-    };
-
-    const incrementAppCounts = async (appIds: string[]) => {
-        try {
-            await fetch("/api/apps/increment", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    appIds: appIds.filter((id) => id.length > 0),
-                }),
-            });
-        } catch (error) {
-            console.error("Failed to increment app counts:", error);
-        }
-    };
-
     const [isDownloading, setIsDownloading] = useState(false);
     const [isSharing, setIsSharing] = useState(false);
 
     const processSelection = async (action: () => Promise<void> | void) => {
-        const selectedIds = pack
-            .filter((item) => item.private_alternative_id)
-            .map((item) => item.private_alternative_id);
-
         const actionPromise = Promise.resolve(action());
-
-        incrementAppCounts(selectedIds);
 
         return actionPromise;
     };
@@ -331,15 +279,8 @@ export default function App() {
                                             side="bottom"
                                             className="rounded-2xl"
                                         >
-                                            {category?.private_alternatives
-                                                .map((alt) => ({
-                                                    ...alt,
-                                                    count: getAppCount(alt.id),
-                                                }))
-                                                .sort(
-                                                    (a, b) => b.count - a.count,
-                                                )
-                                                .map((private_alternative) => (
+                                            {category?.private_alternatives.map(
+                                                (private_alternative) => (
                                                     <DropdownMenuItem
                                                         key={
                                                             private_alternative.id
@@ -353,7 +294,7 @@ export default function App() {
                                                         }
                                                         className="cursor-pointer rounded-lg"
                                                     >
-                                                        <div className="mr-5 flex flex-row items-center gap-2">
+                                                        <div className="flex flex-row items-center gap-2">
                                                             <div className="h-5 w-5">
                                                                 <Image
                                                                     src={`/app-logos/${private_alternative.id}.jpg`}
@@ -372,18 +313,9 @@ export default function App() {
                                                                 }
                                                             </span>
                                                         </div>
-                                                        <DropdownMenuShortcut className="tracking-tighter">
-                                                            {loadingCounts
-                                                                ? "[Loading...]"
-                                                                : `[In ${private_alternative.count} pack${
-                                                                      private_alternative.count ===
-                                                                      1
-                                                                          ? ""
-                                                                          : "s"
-                                                                  }]`}
-                                                        </DropdownMenuShortcut>
                                                     </DropdownMenuItem>
-                                                ))}
+                                                ),
+                                            )}
                                             <DropdownMenuItem
                                                 onClick={() => {
                                                     handleSelectApp(
@@ -397,7 +329,7 @@ export default function App() {
                                                 }}
                                                 className="cursor-pointer rounded-lg"
                                             >
-                                                <div className="mr-5 flex flex-row items-center gap-2">
+                                                <div className="flex flex-row items-center gap-2">
                                                     {item.private_alternative_id ? (
                                                         <>
                                                             <div className="h-5 w-5 pl-1 text-red-500">
