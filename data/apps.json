@@ -77,9 +77,9 @@
             "name": "Notes",
             "order": 6,
             "mainstream_apps": [
+                { "id": "google_keep", "name": "Google Keep" },
                 { "id": "apple_notes", "name": "Apple Notes" },
                 { "id": "evernote", "name": "Evernote" },
-                { "id": "google_keep", "name": "Google Keep" },
                 { "id": "notion", "name": "Notion" }
             ],
             "private_alternatives": [
