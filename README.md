@@ -45,7 +45,7 @@ New apps can be added to the catalog by modifying `/data/apps.json` and opening 
 When adding a new app, please ensure the logo meets these specifications:
 
 - Format: JPG
-- Resolution: 200x200px
+- Resolution: 200x200px square (no rounded corners)
 - File size: < 50KB
 - Location: Place the logo file in `/public/app-logos/{app_id}.jpg`
 - Padding: There should be sufficient padding around the logo
