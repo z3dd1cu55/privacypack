@@ -188,8 +188,13 @@ export default function App() {
                                             side="bottom"
                                             className="rounded-2xl"
                                         >
-                                            {category?.mainstream_apps.map(
-                                                (mainstream_app) => (
+                                            {category?.mainstream_apps
+                                                .sort((a, b) =>
+                                                    a.name.localeCompare(
+                                                        b.name,
+                                                    ),
+                                                )
+                                                .map((mainstream_app) => (
                                                     <DropdownMenuItem
                                                         key={
                                                             mainstream_app.name
@@ -221,8 +226,7 @@ export default function App() {
                                                             }
                                                         </span>
                                                     </DropdownMenuItem>
-                                                ),
-                                            )}
+                                                ))}
                                         </DropdownMenuContent>
                                     </DropdownMenu>
 
@@ -272,8 +276,13 @@ export default function App() {
                                             side="bottom"
                                             className="rounded-2xl"
                                         >
-                                            {category?.private_alternatives.map(
-                                                (private_alternative) => (
+                                            {category?.private_alternatives
+                                                .sort((a, b) =>
+                                                    a.name.localeCompare(
+                                                        b.name,
+                                                    ),
+                                                )
+                                                .map((private_alternative) => (
                                                     <DropdownMenuItem
                                                         key={
                                                             private_alternative.id
@@ -307,8 +316,7 @@ export default function App() {
                                                             </span>
                                                         </div>
                                                     </DropdownMenuItem>
-                                                ),
-                                            )}
+                                                ))}
                                             <DropdownMenuItem
                                                 onClick={() => {
                                                     handleSelectApp(
