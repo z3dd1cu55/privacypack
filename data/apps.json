@@ -189,7 +189,8 @@
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
                 { "id": "proton_vpn", "name": "Proton VPN" },
                 { "id": "obscura_vpn", "name": "Obscura VPN" },
-                { "id": "ivpn", "name": "IVPN" }
+                { "id": "ivpn", "name": "IVPN" },
+                { "id": "windscribe", "name": "Windscribe" }
             ]
         }
     ]
