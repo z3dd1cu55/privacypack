@@ -10,7 +10,7 @@ export default function cloudflareLoader({ src }: ImageLoaderProps) {
   }
 
   if (src === "/hero.png") {
-    return `https://imagedelivery.net/gwqtS4kafZruByi--g_VMg/af1a92bf-8fb6-4ce3-b9cc-b2002fcb4100/public?quality=100`;
+    return `https://imagedelivery.net/gwqtS4kafZruByi--g_VMg/fea201d8-402f-42d4-c779-9c3f6a069600/public?quality=100`;
   }
 
   if (src === "/logo.png") {
