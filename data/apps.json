@@ -41,7 +41,7 @@
                 { "id": "kagi", "name": "Kagi" },
                 { "id": "brave_search", "name": "Brave Search" },
                 { "id": "duckduckgo", "name": "DuckDuckGo" },
-                { "id": "startpage", "name": "Startpage" }
+                { "id": "startpage", "name": "Startpage" },
                 { "id": "searxng", "name": "SearXNG" }
             ]
         },
@@ -59,7 +59,7 @@
                 { "id": "brave", "name": "Brave" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "tor", "name": "Tor" },
-                { "id": "trivalent", "name": "Trivalent" }
+                { "id": "trivalent", "name": "Trivalent" },
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" },
@@ -140,7 +140,7 @@
             "private_alternatives": [
                 { "id": "ente_auth", "name": "Ente Auth" },
                 { "id": "aegis_auth", "name": "Aegis Auth" },
-                { "id": "proton_auth", "name": "Proton Auth" }
+                { "id": "proton_auth", "name": "Proton Auth" },
                 { "id": "bitwarden_auth", "name": "Bitwarden Auth" }
             ]
         },
@@ -165,7 +165,7 @@
                 { "id": "app_store", "name": "App Store" }
             ],
             "private_alternatives": [
-                { "id": "accrescent", "name": "Accrescent" }
+                { "id": "accrescent", "name": "Accrescent" },
                 { "id": "f_droid", "name": "F-Droid" },
                 { "id": "aurora_store", "name": "Aurora Store" },
                 { "id": "obtainium", "name": "Obtainium" }
@@ -183,7 +183,7 @@
             "private_alternatives": [
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
                 { "id": "proton_vpn", "name": "Proton VPN" },
-                { "id": "obscura_vpn", "name": "Obscura VPN" }
+                { "id": "obscura_vpn", "name": "Obscura VPN" },
                 { "id": "ivpn", "name": "IVPN" }
             ]
         }
