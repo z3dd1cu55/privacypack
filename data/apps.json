@@ -55,6 +55,7 @@
                 { "id": "opera", "name": "Opera" }
             ],
             "private_alternatives": [
+                { "id": "zen_browser", "name": "Zen Browser" },
                 { "id": "vanadium", "name": "Vanadium" },
                 { "id": "brave", "name": "Brave" },
                 { "id": "cromite", "name": "Cromite" },
