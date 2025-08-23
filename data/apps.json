@@ -87,7 +87,8 @@
             "private_alternatives": [
                 { "id": "standard_notes", "name": "Standard Notes" },
                 { "id": "notesnook", "name": "Notesnook" },
-                { "id": "obsidian", "name": "Obsidian" }
+                { "id": "obsidian", "name": "Obsidian" },
+                { "id": "anytype", "name": "Anytype" }
             ]
         },
         {
