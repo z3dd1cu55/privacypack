@@ -40,7 +40,8 @@
             "private_alternatives": [
                 { "id": "kagi", "name": "Kagi" },
                 { "id": "brave_search", "name": "Brave Search" },
-                { "id": "duckduckgo", "name": "DuckDuckGo" }
+                { "id": "duckduckgo", "name": "DuckDuckGo" },
+                { "id": "startpage", "name": "Startpage" }
             ]
         },
         {
@@ -59,6 +60,7 @@
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" }
+                { "id": "orion", "name": "Orion" }
             ]
         },
         {
@@ -132,7 +134,7 @@
             "private_alternatives": [
                 { "id": "ente_auth", "name": "Ente Auth" },
                 { "id": "aegis_auth", "name": "Aegis Auth" },
-                { "id": "proton_authenticator", "name": "Proton Authenticator" }
+                { "id": "proton_auth", "name": "Proton Authenticator" }
             ]
         },
         {

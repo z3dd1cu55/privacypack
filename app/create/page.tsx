@@ -106,11 +106,11 @@ export default function App() {
                     </Link>
                     <div className="flex flex-row items-center gap-8">
                         <a
-                            href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-new-app"
+                            href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-missing-app"
                             target="_blank"
-                            className="hidden text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white sm:block"
+                            className="text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 hover:text-white hover:decoration-white"
                         >
-                            Where&#39;s my app?
+                            Add a missing app
                         </a>
                         <button
                             onClick={async () => {
@@ -122,7 +122,7 @@ export default function App() {
                                 }
                             }}
                             id="download-navbar"
-                            className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-5 text-black transition-all duration-150 hover:bg-white/80 active:bg-white/80"
+                            className="hidden h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-5 text-black transition-all duration-150 hover:bg-white/80 active:bg-white/80 sm:flex"
                         >
                             {isDownloading ? (
                                 <Loader2
@@ -394,7 +394,7 @@ export default function App() {
                         }
                     }}
                     id="download-mobile"
-                    className="mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 active:bg-[#444444] sm:hidden"
+                    className="mt-3 mb-8 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#525252] text-white transition-all duration-150 active:bg-[#444444] sm:hidden"
                 >
                     {isDownloading ? (
                         <Loader2
@@ -409,13 +409,6 @@ export default function App() {
                         {isDownloading ? "DOWNLOADING..." : "DOWNLOAD"}
                     </span>
                 </button>
-                <a
-                    href="https://github.com/ente-io/privacypack?tab=readme-ov-file#add-a-new-app"
-                    target="_blank"
-                    className="mx-auto my-12 text-sm text-[#868686] underline decoration-[#525252] underline-offset-4 active:text-white active:decoration-white sm:hidden"
-                >
-                    Where&#39;s my app?
-                </a>
             </div>
 
             <PrivacyPackResult
