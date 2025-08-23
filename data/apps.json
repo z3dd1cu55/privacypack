@@ -41,6 +41,7 @@
                 { "id": "brave_search", "name": "Brave Search" },
                 { "id": "duckduckgo", "name": "DuckDuckGo" },
                 { "id": "startpage", "name": "Startpage" }
+                { "id": "searxng", "name": "SearXNG" }
             ]
         },
         {
@@ -132,6 +133,7 @@
                 { "id": "ente_auth", "name": "Ente Auth" },
                 { "id": "aegis_auth", "name": "Aegis Auth" },
                 { "id": "proton_auth", "name": "Proton Auth" }
+                { "id": "bitwarden_auth", "name": "Bitwarden Auth" }
             ]
         },
         {
@@ -158,6 +160,7 @@
                 { "id": "f_droid", "name": "F-Droid" },
                 { "id": "aurora_store", "name": "Aurora Store" },
                 { "id": "obtainium", "name": "Obtainium" }
+                { "id": "accrescent", "name": "Accrescent" }
             ]
         },
         {
@@ -173,6 +176,7 @@
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
                 { "id": "proton_vpn", "name": "Proton VPN" },
                 { "id": "obscura_vpn", "name": "Obscura VPN" }
+                { "id": "ivpn", "name": "IVPN" }
             ]
         }
     ]
