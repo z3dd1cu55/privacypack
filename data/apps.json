@@ -62,7 +62,6 @@
                 { "id": "zen_browser", "name": "Zen Browser" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "vivaldi", "name": "Vivaldi" },
-                { "id": "cromite", "name": "Cromite" },
                 { "id": "vanadium", "name": "Vanadium" },
                 { "id": "trivalent", "name": "Trivalent" },
                 { "id": "orion", "name": "Orion" }
