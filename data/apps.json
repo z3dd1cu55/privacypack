@@ -59,11 +59,11 @@
                 { "id": "brave", "name": "Brave" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "tor", "name": "Tor" },
+                { "id": "trivalent", "name": "Trivalent" }
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" },
                 { "id": "orion", "name": "Orion" }
-                { "id": "trivalent", "name": "Trivalent" }
             ]
         },
         {
