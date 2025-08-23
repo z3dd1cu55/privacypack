@@ -54,12 +54,12 @@
                 { "id": "opera", "name": "Opera" }
             ],
             "private_alternatives": [
+                { "id": "vanadium", "name": "Vanadium" }
                 { "id": "brave", "name": "Brave" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "tor", "name": "Tor" },
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "orion", "name": "Orion" }
-                { "id": "vanadium", "name": "Vanadium" }
                 { "id": "trivalent", "name": "Trivalent" }
             ]
         },
@@ -159,10 +159,10 @@
                 { "id": "app_store", "name": "App Store" }
             ],
             "private_alternatives": [
+                { "id": "accrescent", "name": "Accrescent" }
                 { "id": "f_droid", "name": "F-Droid" },
                 { "id": "aurora_store", "name": "Aurora Store" },
                 { "id": "obtainium", "name": "Obtainium" }
-                { "id": "accrescent", "name": "Accrescent" }
             ]
         },
         {
