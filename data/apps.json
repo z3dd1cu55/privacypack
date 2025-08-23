@@ -126,7 +126,10 @@
             "mainstream_apps": [
                 { "id": "google_passwords", "name": "Google Passwords" },
                 { "id": "icloud_keychain", "name": "iCloud Keychain" },
-                { "id": "lastpass", "name": "LastPass" }
+                { "id": "lastpass", "name": "LastPass" },
+                { "id": "nordpass", "name": "NordPass" },
+                { "id": "dashlane", "name": "Dashlane" },
+                { "id": "browser_password_manager", "name": "Browser Password Manager" }
             ],
             "private_alternatives": [
                 { "id": "bitwarden", "name": "Bitwarden" },
