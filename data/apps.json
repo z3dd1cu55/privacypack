@@ -55,17 +55,17 @@
                 { "id": "opera", "name": "Opera" }
             ],
             "private_alternatives": [
-                { "id": "tor", "name": "Tor" },
-                { "id": "mullvad_browser", "name": "Mullvad Browser" },
-                { "id": "librewolf", "name": "LibreWolf" },
-                { "id": "brave", "name": "Brave" },
                 { "id": "zen_browser", "name": "Zen Browser" },
+                { "id": "vanadium", "name": "Vanadium" },
+                { "id": "brave", "name": "Brave" },
+                { "id": "cromite", "name": "Cromite" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "floorp", "name": "Floorp" },
-                { "id": "vivaldi", "name": "Vivaldi" },
-                { "id": "cromite", "name": "Cromite" },
-                { "id": "vanadium", "name": "Vanadium" },
+                { "id": "tor", "name": "Tor" },
                 { "id": "trivalent", "name": "Trivalent" },
+                { "id": "vivaldi", "name": "Vivaldi" },
+                { "id": "librewolf", "name": "LibreWolf" },
+                { "id": "mullvad_browser", "name": "Mullvad Browser" },
                 { "id": "orion", "name": "Orion" }
             ]
         },
