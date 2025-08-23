@@ -39,7 +39,8 @@
             "private_alternatives": [
                 { "id": "kagi", "name": "Kagi" },
                 { "id": "brave_search", "name": "Brave Search" },
-                { "id": "duckduckgo", "name": "DuckDuckGo" }
+                { "id": "duckduckgo", "name": "DuckDuckGo" },
+                { "id": "startpage", "name": "Startpage" }
             ]
         },
         {
@@ -55,7 +56,8 @@
                 { "id": "brave", "name": "Brave" },
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "tor", "name": "Tor" },
-                { "id": "vivaldi", "name": "Vivaldi" }
+                { "id": "vivaldi", "name": "Vivaldi" },
+                { "id": "orion", "name": "Orion" }
             ]
         },
         {
@@ -128,7 +130,8 @@
             ],
             "private_alternatives": [
                 { "id": "ente_auth", "name": "Ente Auth" },
-                { "id": "aegis_auth", "name": "Aegis Auth" }
+                { "id": "aegis_auth", "name": "Aegis Auth" },
+                { "id": "proton_auth", "name": "Proton Auth" }
             ]
         },
         {
