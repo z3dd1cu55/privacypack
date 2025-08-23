@@ -99,7 +99,8 @@
                 { "id": "memos", "name": "Memos" },
                 { "id": "notesnook", "name": "Notesnook" },
                 { "id": "obsidian", "name": "Obsidian" },
-                { "id": "logseq", "name": "Logseq" }
+                { "id": "logseq", "name": "Logseq" },
+                { "id": "anytype", "name": "Anytype" }
             ]
         },
         {
