@@ -36,7 +36,7 @@ npm run dev
 
 The application will be available at `http://localhost:3000`
 
-## Add a new app
+## Add a missing app
 
 New apps can be added to the catalog by modifying `/data/apps.json` and opening a PR. Each app belongs to a category and is either a mainstream app or a privacy-focused alternative.
 
