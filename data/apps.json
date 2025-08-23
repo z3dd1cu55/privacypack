@@ -57,7 +57,9 @@
             "private_alternatives": [
                 { "id": "vanadium", "name": "Vanadium" },
                 { "id": "brave", "name": "Brave" },
+                { "id": "cromite", "name": "Cromite" },
                 { "id": "firefox", "name": "Firefox" },
+                { "id": "floorp", "name": "Floorp" },
                 { "id": "tor", "name": "Tor" },
                 { "id": "trivalent", "name": "Trivalent" },
                 { "id": "vivaldi", "name": "Vivaldi" },
@@ -93,6 +95,7 @@
             ],
             "private_alternatives": [
                 { "id": "standard_notes", "name": "Standard Notes" },
+                { "id": "memos", "name": "Memos" },
                 { "id": "notesnook", "name": "Notesnook" },
                 { "id": "obsidian", "name": "Obsidian" },
                 { "id": "logseq", "name": "Logseq" }
