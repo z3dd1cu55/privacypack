@@ -59,7 +59,7 @@
                 { "id": "tor", "name": "Tor" },
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "librewolf", "name": "LibreWolf" },
-                { "id": "mullvad_browser", "name": "Mullvad Browser" }
+                { "id": "mullvad_browser", "name": "Mullvad Browser" },
                 { "id": "orion", "name": "Orion" }
             ]
         },
@@ -176,6 +176,24 @@
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
                 { "id": "proton_vpn", "name": "Proton VPN" },
                 { "id": "obscura_vpn", "name": "Obscura VPN" }
+            ]
+        },
+        {
+            "name": "AI",
+            "order": 13,
+            "mainstream_apps": [
+                { "id": "chatgpt", "name": "ChatGPT" },
+                { "id": "grok", "name": "Grok" },
+                { "id": "claude", "name": "Claude" },
+                { "id": "google_gemini", "name": "Google Gemini" },
+                { "id": "microsoft_copilot", "name": "Microsoft Copilot" },
+                { "id": "deepseek", "name": "DeepSeek" },
+                { "id": "perplexity", "name": "Perplexity" }
+            ],
+            "private_alternatives": [
+                { "id": "maple_ai", "name": "Maple AI" },
+                { "id": "ollama", "name": "Ollama" },
+                { "id": "ppq", "name": "PayPerQ" }
             ]
         }
     ]
