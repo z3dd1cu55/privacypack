@@ -26,6 +26,7 @@
             ],
             "private_alternatives": [
                 { "id": "ente_photos", "name": "Ente Photos" },
+                { "id": "proton_drive", "name": "Proton Drive" },
                 { "id": "immich", "name": "Immich" }
             ]
         },
@@ -57,6 +58,8 @@
                 { "id": "firefox", "name": "Firefox" },
                 { "id": "tor", "name": "Tor" },
                 { "id": "vivaldi", "name": "Vivaldi" },
+                { "id": "librewolf", "name": "LibreWolf" },
+                { "id": "mullvad_browser", "name": "Mullvad Browser" }
                 { "id": "orion", "name": "Orion" }
             ]
         },
