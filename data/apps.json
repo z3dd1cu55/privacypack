@@ -86,7 +86,8 @@
                 { "id": "threema", "name": "Threema" },
                 { "id": "element", "name": "Element Classic"},
                 { "id": "briar", "name": "Briar"},
-                { "id": "dino", "name": "Dino" }
+                { "id": "dino", "name": "Dino" },
+                { "id": "molly", "name": "Molly" }
             ]
         },
         {
