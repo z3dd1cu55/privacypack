@@ -195,6 +195,7 @@
                 { "id": "obscura_vpn", "name": "Obscura VPN" },
                 { "id": "ivpn", "name": "IVPN" },
                 { "id": "windscribe", "name": "Windscribe VPN" }
+                { "id": "urnetwork", "name": "URnetwork dVPN" }
             ]
         }
     ]
