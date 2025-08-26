@@ -88,7 +88,6 @@
                 { "id": "session", "name": "Session" },
                 { "id": "signal", "name": "Signal" },
                 { "id": "simplex_chat", "name": "SimpleX Chat" },
-                { "id": "threema", "name": "Threema" }
             ]
         },
         {
