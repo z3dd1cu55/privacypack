@@ -179,7 +179,7 @@
             ]
         },
         {
-            "name": "AI",
+            "name": "AI Assistant",
             "order": 13,
             "mainstream_apps": [
                 { "id": "chatgpt", "name": "ChatGPT" },
