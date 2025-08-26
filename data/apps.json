@@ -128,6 +128,7 @@
             "mainstream_apps": [
                 { "id": "google_passwords", "name": "Google Passwords" },
                 { "id": "icloud_keychain", "name": "iCloud Keychain" },
+                { "id": "samsung_pass", "name": "Samsung Pass" },
                 { "id": "lastpass", "name": "LastPass" }
             ],
             "private_alternatives": [
