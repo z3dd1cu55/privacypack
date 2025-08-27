@@ -49,6 +49,10 @@ When adding a new app, please ensure the logo meets these specifications:
 - File size: < 50KB
 - Location: Place the logo file in `/public/app-logos/{app_id}.jpg`
 
+## About
+
+PrivacyPack is created and maintained by [Ente](https://ente.io), the makers of Ente Photos and Ente Auth.
+
 ## License
 
 PrivacyPack is distributed under the [MIT license](/LICENSE).

@@ -23,15 +23,15 @@ export default function Home() {
                     <h1 className="green-text xs:text-6xl mt-6 ml-2 pr-2 text-5xl font-bold tracking-[-0.09em] md:mt-4 md:text-8xl">
                         PrivacyPack
                     </h1>
-                    <p className="xs:text-lg mt-4 flex flex-col text-center text-base font-semibold tracking-tighter text-white/50 md:text-2xl">
-                        YOUR PRIVACY WINS, IN ONE CARD
+                    <p className="xs:text-lg mt-4 flex flex-col text-center text-base font-semibold tracking-tighter text-white/50 md:text-2xl uppercase">
+                        Your privacy wins, in one card
                     </p>
                     <Link
                         href="/create"
                         id="create-pack"
-                        className="mt-12 items-center justify-center rounded-2xl bg-white px-10 py-4 text-base font-semibold text-black transition-all duration-150 hover:bg-white/80"
+                        className="mt-12 items-center justify-center rounded-2xl bg-white px-10 py-4 text-base font-semibold text-black transition-all duration-150 hover:bg-white/80 uppercase"
                     >
-                        CREATE YOUR PACK
+                        Create your Pack
                     </Link>
                 </div>
             </div>

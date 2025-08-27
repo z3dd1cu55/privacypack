@@ -4,7 +4,7 @@ const Privacy = () => {
     return (
         <div className="flex w-screen flex-col items-center">
             <div className="flex w-full flex-col gap-5 p-8 text-gray-400 lg:w-[56rem] lg:p-16">
-                <h1 className="mb-8 text-3xl text-white">PRIVACY POLICY</h1>
+                <h1 className="mb-8 text-3xl text-white uppercase">Privacy Policy</h1>
                 <p>Last Updated: August 23, 2025</p>
                 <p>
                     We respect the privacy of our Users (&quot;User&quot;,
