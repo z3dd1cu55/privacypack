@@ -82,7 +82,9 @@
                 { "id": "signal", "name": "Signal" },
                 { "id": "simplex_chat", "name": "SimpleX Chat" },
                 { "id": "session", "name": "Session" },
-                { "id": "threema", "name": "Threema" }
+                { "id": "threema", "name": "Threema" },
+                { "id": "element", "name": "Element Classic" },
+                { "id": "briar", "name": "Briar" }
             ]
         },
         {
@@ -100,7 +102,8 @@
                 { "id": "notesnook", "name": "Notesnook" },
                 { "id": "obsidian", "name": "Obsidian" },
                 { "id": "logseq", "name": "Logseq" },
-                { "id": "anytype", "name": "Anytype" }
+                { "id": "anytype", "name": "Anytype" },
+                { "id": "nextcloud_notes", "name": "Nextcloud Notes" }
             ]
         },
         {
@@ -146,7 +149,8 @@
                 { "id": "ente_auth", "name": "Ente Auth" },
                 { "id": "aegis_auth", "name": "Aegis Auth" },
                 { "id": "proton_auth", "name": "Proton Auth" },
-                { "id": "bitwarden_auth", "name": "Bitwarden Auth" }
+                { "id": "bitwarden_auth", "name": "Bitwarden Auth" },
+                { "id": "yubico_auth", "name": "Yubico Authenticator" }
             ]
         },
         {
@@ -159,7 +163,8 @@
             ],
             "private_alternatives": [
                 { "id": "proton_calendar", "name": "Proton Calendar" },
-                { "id": "tuta_calendar", "name": "Tuta Calendar" }
+                { "id": "tuta_calendar", "name": "Tuta Calendar" },
+                { "id": "nextcloud_calendar", "name": "Nextcloud Calendar" }
             ]
         },
         {
@@ -177,20 +182,8 @@
             ]
         },
         {
-            "name": "Maps",
-            "order": 12,
-            "mainstream_apps": [
-                { "id": "google_maps", "name": "Google Maps" }
-            ],
-            "private_alternatives": [
-                { "id": "open_street_map", "name": "OpenStreetMap" },
-                { "id": "organic_maps", "name": "Organic Maps" },
-                { "id": "magic_earth", "name": "Magic Earth" }
-            ]
-        },
-        {
             "name": "VPN",
-            "order": 13,
+            "order": 12,
             "mainstream_apps": [
                 { "id": "no_vpn", "name": "No VPN" },
                 { "id": "nordvpn", "name": "NordVPN" },
@@ -201,7 +194,28 @@
                 { "id": "mullvad_vpn", "name": "Mullvad VPN" },
                 { "id": "proton_vpn", "name": "Proton VPN" },
                 { "id": "obscura_vpn", "name": "Obscura VPN" },
-                { "id": "ivpn", "name": "IVPN" }
+                { "id": "ivpn", "name": "IVPN" },
+                { "id": "windscribe", "name": "Windscribe VPN" }
+            ]
+        },
+        {
+            "name": "AI Assistant",
+            "order": 13,
+            "mainstream_apps": [
+                { "id": "chatgpt", "name": "ChatGPT" },
+                { "id": "grok", "name": "Grok" },
+                { "id": "claude", "name": "Claude" },
+                { "id": "google_gemini", "name": "Google Gemini" },
+                { "id": "microsoft_copilot", "name": "Microsoft Copilot" },
+                { "id": "deepseek", "name": "DeepSeek" },
+                { "id": "meta_ai", "name": "Meta AI" },
+                { "id": "perplexity", "name": "Perplexity" }
+            ],
+            "private_alternatives": [
+                { "id": "maple_ai", "name": "Maple AI" },
+                { "id": "ollama", "name": "Ollama" },
+                { "id": "lumo", "name": "Lumo" },
+                { "id": "ppq", "name": "PayPerQ" }
             ]
         }
     ]
