@@ -7,13 +7,12 @@
                 { "id": "gmail", "name": "Gmail" },
                 { "id": "outlook", "name": "Outlook" },
                 { "id": "yahoo_mail", "name": "Yahoo Mail" },
-                { "id": "apple_mail", "name": "Apple Mail" }
+                { "id": "icloud_mail", "name": "iCloud Mail" }
             ],
             "private_alternatives": [
                 { "id": "proton_mail", "name": "Proton Mail" },
                 { "id": "tuta_mail", "name": "Tuta Mail" },
-                { "id": "posteo", "name": "Posteo" },
-                { "id": "thunderbird", "name": "Thunderbird" }
+                { "id": "posteo", "name": "Posteo" }
             ]
         },
         {
