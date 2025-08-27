@@ -199,8 +199,21 @@
             ]
         },
         {
-            "name": "AI Assistant",
+            "name": "Maps",
             "order": 13,
+            "mainstream_apps": [
+                { "id": "google_maps", "name": "Google Maps" },
+                { "id": "apple_maps", "name": "Apple Maps" }
+            ],
+            "private_alternatives": [
+                { "id": "open_street_map", "name": "OpenStreetMap" },
+                { "id": "organic_maps", "name": "Organic Maps" },
+                { "id": "magic_earth", "name": "Magic Earth" }
+            ]
+        },
+        {
+            "name": "AI Assistant",
+            "order": 14,
             "mainstream_apps": [
                 { "id": "chatgpt", "name": "ChatGPT" },
                 { "id": "grok", "name": "Grok" },
