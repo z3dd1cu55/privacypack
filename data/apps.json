@@ -66,7 +66,8 @@
                 { "id": "vivaldi", "name": "Vivaldi" },
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" },
-                { "id": "orion", "name": "Orion" }
+                { "id": "orion", "name": "Orion" },
+                { "id": "ironfox", "name": "IronFox" }
             ]
         },
         {
@@ -76,7 +77,8 @@
                 { "id": "whatsapp", "name": "WhatsApp" },
                 { "id": "messenger", "name": "Messenger" },
                 { "id": "telegram", "name": "Telegram" },
-                { "id": "imessage", "name": "iMessage" }
+                { "id": "imessage", "name": "iMessage" },
+                { "id": "discord", "name": "Discord" }
             ],
             "private_alternatives": [
                 { "id": "signal", "name": "Signal" },
@@ -84,7 +86,9 @@
                 { "id": "session", "name": "Session" },
                 { "id": "threema", "name": "Threema" },
                 { "id": "element", "name": "Element Classic" },
-                { "id": "briar", "name": "Briar" }
+                { "id": "briar", "name": "Briar" },
+                { "id": "dino", "name": "Dino" },
+                { "id": "molly", "name": "Molly" }
             ]
         },
         {
@@ -103,7 +107,8 @@
                 { "id": "obsidian", "name": "Obsidian" },
                 { "id": "logseq", "name": "Logseq" },
                 { "id": "anytype", "name": "Anytype" },
-                { "id": "nextcloud_notes", "name": "Nextcloud Notes" }
+                { "id": "nextcloud_notes", "name": "Nextcloud Notes" },
+                { "id": "joplin", "name": "Joplin" }
             ]
         },
         {
@@ -119,7 +124,8 @@
                 { "id": "nextcloud", "name": "Nextcloud" },
                 { "id": "proton_drive", "name": "Proton Drive" },
                 { "id": "filen", "name": "Filen" },
-                { "id": "fileverse", "name": "Fileverse" }
+                { "id": "fileverse", "name": "Fileverse" },
+                { "id": "cryptomator", "name": "Cryptomator" }
             ]
         },
         {
@@ -128,7 +134,9 @@
             "mainstream_apps": [
                 { "id": "google_passwords", "name": "Google Passwords" },
                 { "id": "icloud_keychain", "name": "iCloud Keychain" },
-                { "id": "lastpass", "name": "LastPass" }
+                { "id": "lastpass", "name": "LastPass" },
+                { "id": "nordpass", "name": "NordPass" },
+                { "id": "dashlane", "name": "Dashlane" }
             ],
             "private_alternatives": [
                 { "id": "bitwarden", "name": "Bitwarden" },
@@ -199,21 +207,8 @@
             ]
         },
         {
-            "name": "Maps",
-            "order": 13,
-            "mainstream_apps": [
-                { "id": "google_maps", "name": "Google Maps" },
-                { "id": "apple_maps", "name": "Apple Maps" }
-            ],
-            "private_alternatives": [
-                { "id": "open_street_map", "name": "OpenStreetMap" },
-                { "id": "organic_maps", "name": "Organic Maps" },
-                { "id": "magic_earth", "name": "Magic Earth" }
-            ]
-        },
-        {
             "name": "AI Assistant",
-            "order": 14,
+            "order": 13,
             "mainstream_apps": [
                 { "id": "chatgpt", "name": "ChatGPT" },
                 { "id": "grok", "name": "Grok" },
@@ -229,6 +224,35 @@
                 { "id": "ollama", "name": "Ollama" },
                 { "id": "lumo", "name": "Lumo" },
                 { "id": "ppq", "name": "PayPerQ" }
+            ]
+        },
+        {
+            "name": "Smart Home",
+            "order": 14,
+            "mainstream_apps": [
+                { "id": "google_home", "name": "Google Home" },
+                { "id": "apple_homekit", "name": "Apple HomeKit" },
+                { "id": "amazon_alexa", "name": "Amazon Alexa" },
+                { "id": "samsung_smartthings", "name": "Samsung SmartThings" }
+            ],
+            "private_alternatives": [
+                { "id": "home_assistant", "name": "Home Assistant" },
+                { "id": "openhab", "name": "OpenHAB" },
+                { "id": "domoticz", "name": "Domoticz" },
+                { "id": "iobroker", "name": "ioBroker" }
+            ]
+        },
+        {
+            "name": "Maps",
+            "order": 15,
+            "mainstream_apps": [
+                { "id": "google_maps", "name": "Google Maps" },
+                { "id": "apple_maps", "name": "Apple Maps" }
+            ],
+            "private_alternatives": [
+                { "id": "open_street_map", "name": "OpenStreetMap" },
+                { "id": "organic_maps", "name": "Organic Maps" },
+                { "id": "magic_earth", "name": "Magic Earth" }
             ]
         }
     ]
