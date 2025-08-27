@@ -241,6 +241,19 @@
                 { "id": "domoticz", "name": "Domoticz" },
                 { "id": "iobroker", "name": "ioBroker" }
             ]
+        },
+        {
+            "name": "Maps",
+            "order": 15,
+            "mainstream_apps": [
+                { "id": "google_maps", "name": "Google Maps" },
+                { "id": "apple_maps", "name": "Apple Maps" }
+            ],
+            "private_alternatives": [
+                { "id": "open_street_map", "name": "OpenStreetMap" },
+                { "id": "organic_maps", "name": "Organic Maps" },
+                { "id": "magic_earth", "name": "Magic Earth" }
+            ]
         }
     ]
 }
