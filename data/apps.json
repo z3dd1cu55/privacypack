@@ -140,7 +140,6 @@
                 { "id": "icloud_keychain", "name": "iCloud Keychain" },
                 { "id": "samsung_pass", "name": "Samsung Pass" },
                 { "id": "lastpass", "name": "LastPass" },
-                { "id": "lastpass", "name": "LastPass" },
                 { "id": "apple_passwords", "name": "Apple Passwords" },
                 { "id": "nordpass", "name": "NordPass" },
                 { "id": "dashlane", "name": "Dashlane" }
