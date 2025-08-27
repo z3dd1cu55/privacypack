@@ -137,8 +137,8 @@
             "order": 8,
             "mainstream_apps": [
                 { "id": "google_passwords", "name": "Google Passwords" },
-                { "id": "icloud_keychain", "name": "iCloud Keychain" },
                 { "id": "lastpass", "name": "LastPass" },
+                { "id": "apple_passwords", "name": "Apple Passwords" },
                 { "id": "nordpass", "name": "NordPass" },
                 { "id": "dashlane", "name": "Dashlane" }
             ],
@@ -155,7 +155,8 @@
             "mainstream_apps": [
                 { "id": "google_auth", "name": "Google Auth" },
                 { "id": "microsoft_auth", "name": "Microsoft Auth" },
-                { "id": "authy", "name": "Authy" }
+                { "id": "authy", "name": "Authy" },
+                { "id": "apple_passwords", "name": "Apple Passwords" }
             ],
             "private_alternatives": [
                 { "id": "ente_auth", "name": "Ente Auth" },
