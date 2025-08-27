@@ -83,8 +83,8 @@
                 { "id": "simplex_chat", "name": "SimpleX Chat" },
                 { "id": "session", "name": "Session" },
                 { "id": "threema", "name": "Threema" },
-                { "id": "element", "name": "Element Classic"},
-                { "id": "briar", "name": "Briar"}
+                { "id": "element", "name": "Element Classic" },
+                { "id": "briar", "name": "Briar" }
             ]
         },
         {
@@ -149,7 +149,8 @@
                 { "id": "ente_auth", "name": "Ente Auth" },
                 { "id": "aegis_auth", "name": "Aegis Auth" },
                 { "id": "proton_auth", "name": "Proton Auth" },
-                { "id": "bitwarden_auth", "name": "Bitwarden Auth" }
+                { "id": "bitwarden_auth", "name": "Bitwarden Auth" },
+                { "id": "yubico_auth", "name": "Yubico Authenticator" }
             ]
         },
         {
@@ -198,8 +199,28 @@
             ]
         },
         {
-            "name": "Smart Home",
+            "name": "AI Assistant",
             "order": 13,
+            "mainstream_apps": [
+                { "id": "chatgpt", "name": "ChatGPT" },
+                { "id": "grok", "name": "Grok" },
+                { "id": "claude", "name": "Claude" },
+                { "id": "google_gemini", "name": "Google Gemini" },
+                { "id": "microsoft_copilot", "name": "Microsoft Copilot" },
+                { "id": "deepseek", "name": "DeepSeek" },
+                { "id": "meta_ai", "name": "Meta AI" },
+                { "id": "perplexity", "name": "Perplexity" }
+            ],
+            "private_alternatives": [
+                { "id": "maple_ai", "name": "Maple AI" },
+                { "id": "ollama", "name": "Ollama" },
+                { "id": "lumo", "name": "Lumo" },
+                { "id": "ppq", "name": "PayPerQ" }
+            ]
+        },
+        {
+            "name": "Smart Home",
+            "order": 14,
             "mainstream_apps": [
                 { "id": "google_home", "name": "Google Home" },
                 { "id": "apple_homekit", "name": "Apple HomeKit" },
