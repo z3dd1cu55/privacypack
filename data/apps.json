@@ -43,7 +43,8 @@
                 { "id": "brave_search", "name": "Brave Search" },
                 { "id": "duckduckgo", "name": "DuckDuckGo" },
                 { "id": "startpage", "name": "Startpage" },
-                { "id": "searxng", "name": "SearXNG" }
+                { "id": "searxng", "name": "SearXNG" },
+                { "id": "mojeek", "name": "Mojeek" }
             ]
         },
         {
