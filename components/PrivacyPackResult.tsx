@@ -103,7 +103,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                                         width={0}
                                         height={0}
                                         sizes="100vw"
-                                        className="h-auto w-full rounded-2xl"
+                                        className="h-full w-full rounded-2xl object-cover"
                                     />
                                 </div>
                                 <div
@@ -132,7 +132,7 @@ const PrivacyPackResult: React.FC<PrivacyPackResultProps> = ({ pack }) => {
                                         width={0}
                                         height={0}
                                         sizes="100vw"
-                                        className="h-auto w-full rounded-2xl"
+                                        className="h-full w-full rounded-2xl object-cover"
                                     />
                                 </div>
                                 <div
