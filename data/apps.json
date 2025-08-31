@@ -134,6 +134,7 @@
                 { "id": "proton_drive", "name": "Proton Drive" },
                 { "id": "filen", "name": "Filen" },
                 { "id": "fileverse", "name": "Fileverse" },
+                { "id": "jottacloud", "name": "Jottacloud" },
                 { "id": "cryptomator", "name": "Cryptomator" }
             ]
         },
