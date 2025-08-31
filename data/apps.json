@@ -296,6 +296,7 @@
                 { "id": "nextdns", "name": "NextDNS" },
                 { "id": "adguard", "name": "AdGuard DNS" },
                 { "id": "quad9", "name": "Quad9 DNS" }
+            ]
         }
     ]
 }
