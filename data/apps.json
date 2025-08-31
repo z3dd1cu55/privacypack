@@ -71,6 +71,7 @@
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" },
                 { "id": "orion", "name": "Orion" },
+                { "id": "waterfox", "name": "Waterfox" },
                 { "id": "ironfox", "name": "IronFox" }
             ]
         },
