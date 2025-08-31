@@ -10,9 +10,11 @@
                 { "id": "icloud_mail", "name": "iCloud Mail" }
             ],
             "private_alternatives": [
+                { "id": "mailbox_org", "name": "Mailbox.org" },
                 { "id": "proton_mail", "name": "Proton Mail" },
                 { "id": "tuta_mail", "name": "Tuta Mail" },
-                { "id": "posteo", "name": "Posteo" }
+                { "id": "posteo", "name": "Posteo" },
+                { "id": "migadu", "name": "Migadu" }
             ]
         },
         {
@@ -69,6 +71,7 @@
                 { "id": "librewolf", "name": "LibreWolf" },
                 { "id": "mullvad_browser", "name": "Mullvad Browser" },
                 { "id": "orion", "name": "Orion" },
+                { "id": "waterfox", "name": "Waterfox" },
                 { "id": "ironfox", "name": "IronFox" }
             ]
         },
@@ -111,6 +114,7 @@
                 { "id": "logseq", "name": "Logseq" },
                 { "id": "anytype", "name": "Anytype" },
                 { "id": "nextcloud_notes", "name": "Nextcloud Notes" },
+                { "id": "qownnotes", "name": "QOwnNotes" },
                 { "id": "fileverse", "name": "DDocs.new" },
                 { "id": "joplin", "name": "Joplin" }
             ]
@@ -125,6 +129,7 @@
                 { "id": "icloud", "name": "iCloud" }
             ],
             "private_alternatives": [
+                { "id": "mailbox_org", "name": "Mailbox.org" },
                 { "id": "nextcloud", "name": "Nextcloud" },
                 { "id": "proton_drive", "name": "Proton Drive" },
                 { "id": "filen", "name": "Filen" },
@@ -137,6 +142,8 @@
             "order": 8,
             "mainstream_apps": [
                 { "id": "google_passwords", "name": "Google Passwords" },
+                { "id": "icloud_keychain", "name": "iCloud Keychain" },
+                { "id": "samsung_pass", "name": "Samsung Pass" },
                 { "id": "lastpass", "name": "LastPass" },
                 { "id": "apple_passwords", "name": "Apple Passwords" },
                 { "id": "nordpass", "name": "NordPass" },
@@ -176,6 +183,7 @@
             ],
             "private_alternatives": [
                 { "id": "proton_calendar", "name": "Proton Calendar" },
+                { "id": "mailbox_org", "name": "Mailbox.org" },
                 { "id": "tuta_calendar", "name": "Tuta Calendar" },
                 { "id": "nextcloud_calendar", "name": "Nextcloud Calendar" },
                 { "id": "radicale", "name": "Radicale" }
@@ -211,7 +219,8 @@
                 { "id": "ivpn", "name": "IVPN" },
                 { "id": "windscribe", "name": "Windscribe VPN" },
                 { "id": "portmaster_spn", "name": "Portmaster SPN" },
-                { "id": "mozilla_vpn", "name": "Mozilla VPN" }
+                { "id": "mozilla_vpn", "name": "Mozilla VPN" },
+                { "id": "urnetwork", "name": "URnetwork dVPN" }
             ]
         },
         {
