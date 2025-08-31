@@ -30,7 +30,8 @@
                 { "id": "ente_photos", "name": "Ente Photos" },
                 { "id": "proton_drive", "name": "Proton Drive" },
                 { "id": "immich", "name": "Immich" },
-                { "id": "nextcloud_memories", "name": "Nextcloud Memories" }
+                { "id": "nextcloud_memories", "name": "Nextcloud Memories" },
+                { "id": "zeitkapsl", "name": "zeitkapsl" }
             ]
         },
         {
