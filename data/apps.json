@@ -283,7 +283,7 @@
             ]
         },
         {
-            "name": "PC OS",
+            "name": "Computer OS",
             "order": 17,
             "mainstream_apps": [
                 { "id": "windows", "name": "Windows" },
