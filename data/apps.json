@@ -281,6 +281,34 @@
             "private_alternatives": [
                 { "id": "matrix", "name": "Matrix" }
             ]
+        },
+        {
+            "name": "PC OS",
+            "order": 17,
+            "mainstream_apps": [
+                { "id": "windows", "name": "Windows" },
+                { "id": "macos", "name": "macOS" }
+            ],
+            "private_alternatives": [
+                { "id": "arch_linux", "name": "Arch Linux" },
+                { "id": "linux_mint", "name": "Linux Mint" },
+                { "id": "qubes_os", "name": "Qubes OS" },
+                { "id": "fedora", "name": "Fedora" },
+                { "id": "ubuntu", "name": "Ubuntu" }
+            ]
+        },
+        {
+            "name": "Phone OS",
+            "order": 18,
+            "mainstream_apps": [
+                { "id": "android", "name": "Android" },
+                { "id": "ios", "name": "iOS" }
+            ],
+            "private_alternatives": [
+                { "id": "graphene_os", "name": "GrapheneOS" },
+                { "id": "calyx_os", "name": "CalyxOS" },
+                { "id": "lineage_os", "name": "LineageOS" }
+            ]
         }
     ]
 }
