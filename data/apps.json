@@ -12,6 +12,7 @@
             "private_alternatives": [
                 { "id": "mailbox_org", "name": "Mailbox.org" },
                 { "id": "proton_mail", "name": "Proton Mail" },
+                { "id": "forwardemail_net", "name": "Forward Email" },
                 { "id": "tuta_mail", "name": "Tuta Mail" },
                 { "id": "posteo", "name": "Posteo" },
                 { "id": "migadu", "name": "Migadu" }
