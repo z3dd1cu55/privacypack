@@ -275,8 +275,16 @@
             ]
         },
         {
-            "name": "Community",
+            "name": "Translator",
             "order": 16,
+            "mainstream_apps": [
+                { "id": "google_translate", "name": "Google Translate" }
+            ],
+            "private_alternatives": [{ "id": "deepl", "name": "DeepL" }]
+        },
+        {
+            "name": "Community",
+            "order": 17,
             "mainstream_apps": [
                 { "id": "discord", "name": "Discord" },
                 { "id": "guilded", "name": "Guilded" }
@@ -285,7 +293,7 @@
         },
         {
             "name": "DNS",
-            "order": 17,
+            "order": 18,
             "mainstream_apps": [
                 { "id": "isp_dns", "name": "ISP DNS" },
                 { "id": "google_search", "name": "Google DNS" },
@@ -300,7 +308,7 @@
         },
         {
             "name": "Computer OS",
-            "order": 18,
+            "order": 19,
             "mainstream_apps": [
                 { "id": "windows", "name": "Windows" },
                 { "id": "macos", "name": "macOS" }
@@ -315,7 +323,7 @@
         },
         {
             "name": "Phone OS",
-            "order": 19,
+            "order": 20,
             "mainstream_apps": [
                 { "id": "android", "name": "Android" },
                 { "id": "ios", "name": "iOS" }
