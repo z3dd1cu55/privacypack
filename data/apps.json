@@ -281,10 +281,7 @@
                 { "id": "discord", "name": "Discord" },
                 { "id": "guilded", "name": "Guilded" }
             ],
-            "private_alternatives": [
-                { "id": "matrix", "name": "Matrix" }
-            
-            ]
+            "private_alternatives": [{ "id": "matrix", "name": "Matrix" }]
         },
         {
             "name": "DNS",
@@ -303,7 +300,7 @@
         },
         {
             "name": "Computer OS",
-            "order": 17,
+            "order": 18,
             "mainstream_apps": [
                 { "id": "windows", "name": "Windows" },
                 { "id": "macos", "name": "macOS" }
@@ -318,7 +315,7 @@
         },
         {
             "name": "Phone OS",
-            "order": 18,
+            "order": 19,
             "mainstream_apps": [
                 { "id": "android", "name": "Android" },
                 { "id": "ios", "name": "iOS" }

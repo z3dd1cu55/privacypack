@@ -217,7 +217,7 @@ export default function App() {
                                                                 width={0}
                                                                 height={0}
                                                                 sizes="100vw"
-                                                                className="h-auto w-full"
+                                                                className="h-auto w-full rounded-sm"
                                                             />
                                                         </div>
                                                         <span className="text-xs sm:text-sm">
@@ -306,7 +306,7 @@ export default function App() {
                                                                     width={0}
                                                                     height={0}
                                                                     sizes="100vw"
-                                                                    className="h-auto w-full"
+                                                                    className="h-auto w-full rounded-sm"
                                                                 />
                                                             </div>
                                                             <span className="text-xs sm:text-sm">
