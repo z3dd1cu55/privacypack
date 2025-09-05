@@ -280,6 +280,22 @@
             ],
             "private_alternatives": [
                 { "id": "matrix", "name": "Matrix" }
+            
+            ]
+        },
+        {
+            "name": "DNS",
+            "order": 17,
+            "mainstream_apps": [
+                { "id": "isp_dns", "name": "ISP DNS" },
+                { "id": "google_search", "name": "Google DNS" },
+                { "id": "cloudflare", "name": "Cloudflare DNS" }
+            ],
+            "private_alternatives": [
+                { "id": "controld", "name": "ControlD DNS" },
+                { "id": "nextdns", "name": "NextDNS" },
+                { "id": "adguard", "name": "AdGuard DNS" },
+                { "id": "quad9", "name": "Quad9 DNS" }
             ]
         }
     ]
